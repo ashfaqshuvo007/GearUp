@@ -1,0 +1,9 @@
+model OrderItem {
+    id        String      @id @default(uuid())
+    orderId   String      @unique
+    itemId    String      @unique
+    item      GearItem    @relation(fields: [itemId], references: [id])
+    order     RentalOrder @relation(fields: [orderId], references: [id])
+    createdAt DateTime    @default(now())
+    updatedAt DateTime    @updatedAt
+}

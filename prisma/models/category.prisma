@@ -1,0 +1,9 @@
+model Category {
+    id          String       @id @default(uuid())
+    name        String       @db.VarChar(255)
+    description String?      @db.Text
+    status      ActiveStatus @default(ACTIVE)
+    gearItems   GearItem[]
+    createdAt   DateTime     @default(now())
+    updatedAt   DateTime     @updatedAt
+}
