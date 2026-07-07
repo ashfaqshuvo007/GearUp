@@ -6,8 +6,8 @@ import express, {
   type Response,
 } from "express";
 import config from "./config";
-import { prisma } from "./lib/prisma";
 import { authRouter } from "./modules/auth/auth.route";
+import globalErrorHandler from "./middleware/globalErrorHandler";
 
 const app: Application = express();
 const BASE_URL = config.base_url;
@@ -22,11 +22,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-app.get("/", async (req: Request, res: Response) => {
+app.get("/" + BASE_URL, async (req: Request, res: Response) => {
   res.send("Gear Up api is live!");
 });
 
 // Auth Routes
-app.get(BASE_URL + "/auth", authRouter);
+app.use("/" + BASE_URL + "/auth", authRouter);
 
+app.use(globalErrorHandler);
 export default app;
