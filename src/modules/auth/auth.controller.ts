@@ -21,22 +21,47 @@ const register = async (req: Request, res: Response, next: NextFunction) => {
 const login = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const result = await authService.loginUser(req.body);
-    console.log(result);
+    const { refreshToken, user } = result;
+
+    res.cookie("refreshToken", refreshToken, {
+      secure: false,
+      httpOnly: true,
+      sameSite: "lax",
+    });
+
+    res.cookie("loggedInUser", user, {
+      secure: false,
+      httpOnly: true,
+      sameSite: "lax",
+    });
+
     sendResponse(res, {
       statusCode: httpStatus.OK,
       success: true,
-      message: "User retrieved successfully",
+      message: "Login Successful!",
       data: result,
     });
   } catch (error) {
     next(error);
   }
 };
-export const loggedInUser = async (req: Request, res: Response) => {
+export const loggedInUser = async (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
   try {
-    res.status(200).json({ message: "User LoggedIn is : Ashfaq" });
+    const { email } = req.cookies.loggedInUser;
+    const user = await authService.loggedInUser(email);
+
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: "User retrieved Successfully!",
+      data: user,
+    });
   } catch (error) {
-    console.error("Invalid Credentials", error);
+    next(error);
   }
 };
 
@@ -45,6 +70,7 @@ const refreshToken = async (req: Request, res: Response) => {
     const result = await authService.generateRefreshToken(
       req.cookies.refreshToken,
     );
+
     res.cookie("refreshToken", refreshToken, {
       secure: false,
       httpOnly: true,
@@ -71,4 +97,5 @@ export const authController = {
   login,
   register,
   loggedInUser,
+  refreshToken,
 };

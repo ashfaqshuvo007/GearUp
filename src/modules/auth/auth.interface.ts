@@ -14,6 +14,5 @@ export interface IUser {
 
 export interface ILoginUser {
   email: string;
-  pass: string;
-  role: Role;
+  password: string;
 }

@@ -42,8 +42,7 @@ const registerUser = async (payload: IUser) => {
 };
 
 const loginUser = async (payload: ILoginUser) => {
-  const { email, pass } = payload;
-  console.log(pass);
+  const { email, password } = payload;
   const user = await prisma.user.findUnique({
     where: { email },
   });
@@ -52,7 +51,7 @@ const loginUser = async (payload: ILoginUser) => {
     throw new Error("Invalid Credentials!");
   }
 
-  const matchPassword = await compare(pass, user.password);
+  const matchPassword = await compare(password, user.password);
 
   if (!matchPassword) {
     throw new Error("Invalid Credentials!");
@@ -61,22 +60,38 @@ const loginUser = async (payload: ILoginUser) => {
   const userPayload = {
     id: user.id,
     name: user.name,
+    email: user.email,
     role: user.role,
   };
   // if match found generate token with TTL
   const token = jwt.sign(userPayload, config.jwt_secret as string, {
     expiresIn: "1d",
   });
-  const { password, ...safeUser } = user;
+
+  //Refresh token
+  const refreshToken = jwt.sign(userPayload, config.refresh_secret as string, {
+    expiresIn: "10d",
+  });
+
   const result = {
     accessToken: token,
-    user: safeUser,
+    refreshToken: refreshToken,
+    user: userPayload,
   };
 
   return result;
 };
 
-const loggedInUser = () => {};
+const loggedInUser = async (email: string) => {
+  return await prisma.user.findUnique({
+    where: { email },
+    omit: { password: true },
+    include: {
+      reviews: true,
+      orders: true,
+    },
+  });
+};
 
 const generateRefreshToken = async (token: string) => {
   //* Check refresh token in cookies
