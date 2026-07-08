@@ -2,9 +2,10 @@ import type { NextFunction, Request, Response } from "express";
 import httpStatus from "http-status";
 import { authService } from "./auth.service";
 import sendResponse from "../../utils/sendReponse";
+import { catchAsync } from "../../utils/catchAsync";
 
-const register = async (req: Request, res: Response, next: NextFunction) => {
-  try {
+const registerUser = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
     const user = await authService.registerUser(req.body);
 
     sendResponse(res, {
@@ -13,23 +14,20 @@ const register = async (req: Request, res: Response, next: NextFunction) => {
       message: "User registered successfully",
       data: user,
     });
-  } catch (error: any) {
-    next(error);
-  }
-};
+  },
+);
 
-const login = async (req: Request, res: Response, next: NextFunction) => {
-  try {
+const loginUser = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
     const result = await authService.loginUser(req.body);
-    const { refreshToken, user } = result;
+    const { refreshToken, accessToken } = result;
 
     res.cookie("refreshToken", refreshToken, {
       secure: false,
       httpOnly: true,
       sameSite: "lax",
     });
-
-    res.cookie("loggedInUser", user, {
+    res.cookie("accessToken", accessToken, {
       secure: false,
       httpOnly: true,
       sameSite: "lax",
@@ -41,18 +39,12 @@ const login = async (req: Request, res: Response, next: NextFunction) => {
       message: "Login Successful!",
       data: result,
     });
-  } catch (error) {
-    next(error);
-  }
-};
-export const loggedInUser = async (
-  req: Request,
-  res: Response,
-  next: NextFunction,
-) => {
-  try {
-    const { email } = req.cookies.loggedInUser;
-    const user = await authService.loggedInUser(email);
+  },
+);
+
+const loggedInUser = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const user = await authService.loggedInUser(req.user?.data.id as string);
 
     sendResponse(res, {
       statusCode: httpStatus.OK,
@@ -60,42 +52,31 @@ export const loggedInUser = async (
       message: "User retrieved Successfully!",
       data: user,
     });
-  } catch (error) {
-    next(error);
-  }
-};
+  },
+);
 
-const refreshToken = async (req: Request, res: Response) => {
-  try {
-    const result = await authService.generateRefreshToken(
-      req.cookies.refreshToken,
-    );
+const refreshToken = catchAsync(async (req: Request, res: Response) => {
+  const result = await authService.generateRefreshToken(
+    req.cookies.refreshToken,
+  );
 
-    res.cookie("refreshToken", refreshToken, {
-      secure: false,
-      httpOnly: true,
-      sameSite: "lax",
-    });
+  res.cookie("refreshToken", refreshToken, {
+    secure: false,
+    httpOnly: true,
+    sameSite: "lax",
+  });
 
-    sendResponse(res, {
-      statusCode: 200,
-      success: true,
-      message: "Access token generated",
-      data: result,
-    });
-  } catch (error: any) {
-    sendResponse(res, {
-      statusCode: 500,
-      success: false,
-      message: error.message,
-      data: error,
-    });
-  }
-};
+  sendResponse(res, {
+    statusCode: 200,
+    success: true,
+    message: "Access token generated",
+    data: result,
+  });
+});
 
 export const authController = {
-  login,
-  register,
+  loginUser,
+  registerUser,
   loggedInUser,
   refreshToken,
 };

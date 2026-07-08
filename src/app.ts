@@ -9,6 +9,7 @@ import config from "./config";
 import { authRouter } from "./modules/auth/auth.route";
 import globalErrorHandler from "./middleware/globalErrorHandler";
 import { categoryRouter } from "./modules/category/category.route";
+import { gearRouter } from "./modules/gear/gear.route";
 
 const app: Application = express();
 const BASE_URL = config.base_url;
@@ -30,6 +31,7 @@ app.get("/" + BASE_URL, async (req: Request, res: Response) => {
 // Routes
 app.use("/" + BASE_URL + "/auth", authRouter);
 app.use("/" + BASE_URL + "/categories", categoryRouter);
+app.use("/" + BASE_URL + "/gears", gearRouter);
 
 app.use(globalErrorHandler);
 export default app;
