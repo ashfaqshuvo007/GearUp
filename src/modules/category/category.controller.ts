@@ -1,13 +1,10 @@
 import type { NextFunction, Request, Response } from "express";
 import sendResponse from "../../utils/sendReponse";
 import { categoryService } from "./category.service";
+import { catchAsync } from "../../utils/catchAsync";
 
-const getAllCategories = async (
-  req: Request,
-  res: Response,
-  next: NextFunction,
-) => {
-  try {
+const getAllCategories = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
     const categories = await categoryService.getAllCategories();
 
     sendResponse(res, {
@@ -16,10 +13,8 @@ const getAllCategories = async (
       message: "Categories Retrieved Successfully!",
       data: categories,
     });
-  } catch (error) {
-    next(error);
-  }
-};
+  },
+);
 
 export const categoryController = {
   getAllCategories,

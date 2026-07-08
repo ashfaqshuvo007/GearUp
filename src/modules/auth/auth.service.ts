@@ -82,9 +82,9 @@ const loginUser = async (payload: ILoginUser) => {
   return result;
 };
 
-const loggedInUser = async (email: string) => {
+const loggedInUser = async (id: string) => {
   return await prisma.user.findUnique({
-    where: { email },
+    where: { id },
     omit: { password: true },
     include: {
       reviews: true,
