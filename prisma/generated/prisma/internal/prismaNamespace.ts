@@ -986,7 +986,8 @@ export const GearItemScalarFieldEnum = {
   brand: 'brand',
   quantity: 'quantity',
   price: 'price',
-  categoryId: 'categoryId',
+  categoryName: 'categoryName',
+  providerId: 'providerId',
   status: 'status',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'

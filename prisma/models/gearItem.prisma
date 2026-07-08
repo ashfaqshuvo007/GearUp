@@ -1,13 +1,15 @@
 model GearItem {
-    id          String   @id @default(uuid())
-    name        String   @db.VarChar(255)
-    description String   @db.Text
-    brand       String   @db.VarChar(255)
-    quantity    Int
-    price       Decimal  @db.Decimal(8, 2)
-    category    Category @relation(fields: [categoryId], references: [id])
-    categoryId  String   @unique
-    reviews     Review[]
+    id           String   @id @default(uuid())
+    name         String   @db.VarChar(255)
+    description  String   @db.Text
+    brand        String   @db.VarChar(255)
+    quantity     Int
+    price        Decimal  @db.Decimal(8, 2)
+    category     Category @relation(fields: [categoryName], references: [name])
+    categoryName String
+    providerId   String
+    provider     User     @relation(fields: [providerId], references: [id])
+    reviews      Review[]
 
     status    ActiveStatus @default(ACTIVE)
     createdAt DateTime     @default(now())
