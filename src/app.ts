@@ -8,6 +8,7 @@ import express, {
 import config from "./config";
 import { authRouter } from "./modules/auth/auth.route";
 import globalErrorHandler from "./middleware/globalErrorHandler";
+import { categoryRouter } from "./modules/category/category.route";
 
 const app: Application = express();
 const BASE_URL = config.base_url;
@@ -26,8 +27,9 @@ app.get("/" + BASE_URL, async (req: Request, res: Response) => {
   res.send("Gear Up api is live!");
 });
 
-// Auth Routes
+// Routes
 app.use("/" + BASE_URL + "/auth", authRouter);
+app.use("/" + BASE_URL + "/categories", categoryRouter);
 
 app.use(globalErrorHandler);
 export default app;
