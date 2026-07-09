@@ -57,7 +57,34 @@ const getGearItem = async (id: string) => {
   });
 };
 
+const addReview = async (
+  gearId: string,
+  userId: string,
+  rating: number,
+  content: string,
+) => {
+  const gearItem = await prisma.gearItem.findUnique({
+    where: { id: gearId },
+  });
+
+  if (!gearItem) {
+    throw new Error("Gear item not found.");
+  }
+
+  const review = await prisma.review.create({
+    data: {
+      itemId: gearId,
+      customerId: userId,
+      rating,
+      content,
+    },
+  });
+
+  return review;
+};
+
 export const gearService = {
   getAllGears,
   getGearItem,
+  addReview,
 };

@@ -4,6 +4,8 @@ model Review {
   customer   User     @relation(fields: [customerId], references: [id])
   itemId     String   @unique
   item       GearItem @relation(fields: [itemId], references: [id])
+  content    String @db.Text
+  rating     Decimal  @db.Decimal(2, 1)
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
 }

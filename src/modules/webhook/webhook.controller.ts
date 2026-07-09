@@ -28,7 +28,6 @@ const handleStripeWebhook = async (
       .status(httpStatus.BAD_REQUEST)
       .send("Webhook signature verification failed.");
   }
-  console.log(event);
 
   switch (event.type) {
     case "checkout.session.completed": {

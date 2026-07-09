@@ -32,7 +32,23 @@ const getSingleGearItem = catchAsync(
   },
 );
 
+const addReview = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const { gearId, rating, content } = req.body;
+    const userId = req.user?.data.id as string;
+
+    const review = await gearService.addReview(gearId, userId, rating, content);
+    sendResponse(res, {
+      statusCode: httpStatus.CREATED,
+      success: true,
+      message: "Review added successfully!",
+      data: review,
+    });
+  },
+);
+
 export const gearController = {
   getAllGears,
   getSingleGearItem,
+  addReview,
 };
