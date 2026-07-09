@@ -1,0 +1,2333 @@
+{
+  "info": {
+    "_postman_id": "fb59fc9f-6f0d-49d1-8a4c-2de4d3fc3004",
+    "name": "GearUp",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "7324207"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Get LoggedIn User",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{$accessToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:4000/api/auth/me",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "auth",
+                "me"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get LoggedIn User Profile",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{$accessToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:4000/api/auth/me",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "api",
+                    "auth",
+                    "me"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "http://localhost:4000/"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "306"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"132-evQX3VaRJXTmQ9hjKNP9BMZl1uQ\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 09 Jul 2026 16:53:45 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"User retrieved Successfully!\",\n    \"data\": {\n        \"id\": \"f0b77af3-73cf-462e-bd80-0ec3eb83eef8\",\n        \"name\": \"Random Provider 1\",\n        \"email\": \"provider1@gamil.com\",\n        \"status\": \"ACTIVE\",\n        \"role\": \"PROVIDER\",\n        \"createdAt\": \"2026-07-09T11:21:56.724Z\",\n        \"updatedAt\": \"2026-07-09T15:05:43.355Z\",\n        \"reviews\": [],\n        \"orders\": []\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Random Provider 2\",\n    \"email\": \"provider2@gamil.com\",\n    \"password\": \"123456\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/auth/register",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Register As Customer",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"name\": \"Random Customer\",\n    \"email\": \"customer1@gamil.com\",\n    \"password\": \"123456\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:4000/api/auth/register",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "api",
+                    "auth",
+                    "register"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "http://localhost:4000/"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "304"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"130-dy3Xi//B7J6DYaVby1vzu/iKbMs\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 09 Jul 2026 16:48:09 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"User registered successfully\",\n    \"data\": {\n        \"id\": \"bc0c8811-8f5d-4e06-8b0a-0cb70b5a008d\",\n        \"name\": \"Random Customer\",\n        \"email\": \"customer1@gamil.com\",\n        \"status\": \"ACTIVE\",\n        \"role\": \"CUSTOMER\",\n        \"createdAt\": \"2026-07-09T16:48:09.209Z\",\n        \"updatedAt\": \"2026-07-09T16:48:09.209Z\",\n        \"orders\": [],\n        \"reviews\": []\n    }\n}"
+            },
+            {
+              "name": "Register AS Provider",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"name\": \"Random Provider 2\",\n    \"email\": \"provider2@gamil.com\",\n    \"password\": \"123456\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:4000/api/auth/register",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "api",
+                    "auth",
+                    "register"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "http://localhost:4000/"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "306"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"132-oMIzwyTCl1+dJt3ot8LwvQnD1Eo\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 09 Jul 2026 16:49:08 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"User registered successfully\",\n    \"data\": {\n        \"id\": \"1c96a9a5-231b-49e6-b858-feecf4d86c0c\",\n        \"name\": \"Random Provider 2\",\n        \"email\": \"provider2@gamil.com\",\n        \"status\": \"ACTIVE\",\n        \"role\": \"CUSTOMER\",\n        \"createdAt\": \"2026-07-09T16:49:08.544Z\",\n        \"updatedAt\": \"2026-07-09T16:49:08.544Z\",\n        \"orders\": [],\n        \"reviews\": []\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Login User",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "// {\n//     \"email\": \"customer@gamil.com\",\n//     \"password\": \"123456\"\n// }\n{\n    \"email\": \"admin@gamil.com\",\n    \"password\": \"123456\"\n}\n\n// {\n//     \"email\": \"provider1@gamil.com\",\n//     \"password\": \"123456\"\n// }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Login User",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "// {\n//     \"email\": \"customer@gamil.com\",\n//     \"password\": \"123456\"\n// }\n// {\n//     \"email\": \"admin@gamil.com\",\n//     \"password\": \"123456\"\n// }\n\n{\n    \"email\": \"provider1@gamil.com\",\n    \"password\": \"123456\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:4000/api/auth/login",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "api",
+                    "auth",
+                    "login"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "",
+              "header": [],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Login Successful!\",\n    \"data\": {\n        \"accessToken\": <ACCESS_TOKEN_GOES_HERE>,\n        \"refreshToken\": <REFRESH_TOKEN_GOES_HERE>,\n        \"user\": {\n            \"id\": \"f0b77af3-73cf-462e-bd80-0ec3eb83eef8\",\n            \"name\": \"Random Provider 1\",\n            \"email\": \"provider1@gamil.com\",\n            \"role\": \"PROVIDER\"\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Refresh Token",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/auth/refresh-token",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "auth",
+                "refresh-token"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Refresh Token",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:4000/api/auth/refresh-token",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "api",
+                    "auth",
+                    "refresh-token"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "",
+              "header": [],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Access token generated\",\n    \"data\": {\n        \"accessToken\": <ACCESS_TOKEN_GOES_HERE>\n    }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Gear (Public)",
+      "item": [
+        {
+          "name": "Get All Gears",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4000/api/gears?price=>=100",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "gears"
+              ],
+              "query": [
+                {
+                  "key": "category",
+                  "value": "Camping",
+                  "disabled": true
+                },
+                {
+                  "key": "brand",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "price",
+                  "value": ">=100"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get All Gears with Filter (Public)",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:4000/api/gears?price=>=100",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "api",
+                    "gears"
+                  ],
+                  "query": [
+                    {
+                      "key": "category",
+                      "value": "Camping",
+                      "disabled": true
+                    },
+                    {
+                      "key": "brand",
+                      "value": "",
+                      "disabled": true
+                    },
+                    {
+                      "key": "price",
+                      "value": ">=100"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "http://localhost:4000/"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "2235"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"8bb-ENpfwWvcJIa4act2YD/GUS3y2q4\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 09 Jul 2026 16:57:41 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Gears Retrieved Successfully!\",\n    \"data\": [\n        {\n            \"id\": \"9965ee39-c2ff-47a0-98ff-f65370c939da\",\n            \"name\": \"Canoes for rafting\",\n            \"description\": \"canoes for outdoors\",\n            \"brand\": \"LightSpeed\",\n            \"quantity\": 11,\n            \"price\": \"390\",\n            \"categoryName\": \"outdoor sports\",\n            \"providerId\": \"f0b77af3-73cf-462e-bd80-0ec3eb83eef8\",\n            \"status\": \"ACTIVE\",\n            \"createdAt\": \"2026-07-09T11:25:26.282Z\",\n            \"updatedAt\": \"2026-07-09T11:25:26.282Z\",\n            \"category\": {\n                \"id\": \"8843b0b4-c916-4059-97fe-71b4454adfd3\",\n                \"name\": \"outdoor sports\",\n                \"description\": null,\n                \"status\": \"ACTIVE\",\n                \"createdAt\": \"2026-07-09T11:25:26.168Z\",\n                \"updatedAt\": \"2026-07-09T11:25:26.168Z\"\n            }\n        },\n        {\n            \"id\": \"9d4f369f-b2a5-4270-9d74-7bb0729dbd6f\",\n            \"name\": \"GTRX Horse Cycling 2189\",\n            \"description\": \"GTRX Horse Cycling 2189\",\n            \"brand\": \"Horse Cycles\",\n            \"quantity\": 10,\n            \"price\": \"150\",\n            \"categoryName\": \"cycling\",\n            \"providerId\": \"f0b77af3-73cf-462e-bd80-0ec3eb83eef8\",\n            \"status\": \"ACTIVE\",\n            \"createdAt\": \"2026-07-09T11:27:48.834Z\",\n            \"updatedAt\": \"2026-07-09T11:27:48.834Z\",\n            \"category\": {\n                \"id\": \"d02b33f9-9cd6-4edc-8660-2a3acc1a4aff\",\n                \"name\": \"cycling\",\n                \"description\": null,\n                \"status\": \"ACTIVE\",\n                \"createdAt\": \"2026-07-09T11:27:48.731Z\",\n                \"updatedAt\": \"2026-07-09T11:27:48.731Z\"\n            }\n        },\n        {\n            \"id\": \"89e46f44-390f-4ee6-8d34-c9884ebafd17\",\n            \"name\": \"GTRX Horse Cycling Indoors 2000\",\n            \"description\": \"GTRX Horse Cycling Indoors 2000\",\n            \"brand\": \"Horse Cycles\",\n            \"quantity\": 12,\n            \"price\": \"1500\",\n            \"categoryName\": \"Indoor cycling\",\n            \"providerId\": \"f0b77af3-73cf-462e-bd80-0ec3eb83eef8\",\n            \"status\": \"ACTIVE\",\n            \"createdAt\": \"2026-07-09T11:28:33.439Z\",\n            \"updatedAt\": \"2026-07-09T11:28:33.439Z\",\n            \"category\": {\n                \"id\": \"d476f118-e3c2-4e2f-b6b3-c341285fb93e\",\n                \"name\": \"Indoor cycling\",\n                \"description\": null,\n                \"status\": \"ACTIVE\",\n                \"createdAt\": \"2026-07-09T11:28:33.333Z\",\n                \"updatedAt\": \"2026-07-09T11:28:33.333Z\"\n            }\n        },\n        {\n            \"id\": \"ec912ad6-8820-48c4-bd03-d822830a9222\",\n            \"name\": \"Camping Tent\",\n            \"description\": \"Waterproof 2-person tent for outdoor trips\",\n            \"brand\": \"North Face\",\n            \"quantity\": 10,\n            \"price\": \"150\",\n            \"categoryName\": \"camping\",\n            \"providerId\": \"f0b77af3-73cf-462e-bd80-0ec3eb83eef8\",\n            \"status\": \"ACTIVE\",\n            \"createdAt\": \"2026-07-09T11:26:55.339Z\",\n            \"updatedAt\": \"2026-07-09T11:29:22.345Z\",\n            \"category\": {\n                \"id\": \"0b05a9ee-2174-4543-b820-9366c57fead6\",\n                \"name\": \"camping\",\n                \"description\": null,\n                \"status\": \"ACTIVE\",\n                \"createdAt\": \"2026-07-09T11:26:55.227Z\",\n                \"updatedAt\": \"2026-07-09T11:26:55.227Z\"\n            }\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Single Gear",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4000/api/gears/9965ee39-c2ff-47a0-98ff-f65370c939da",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "gears",
+                "9965ee39-c2ff-47a0-98ff-f65370c939da"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get Single Gear (Public)",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:4000/api/gears/9965ee39-c2ff-47a0-98ff-f65370c939da",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "api",
+                    "gears",
+                    "9965ee39-c2ff-47a0-98ff-f65370c939da"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "http://localhost:4000/"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "599"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"257-oDNXGV1mMNf9uxyDZuVJMDzGz+4\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 09 Jul 2026 16:57:59 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Gear Retrieved Successfully!\",\n    \"data\": {\n        \"id\": \"9965ee39-c2ff-47a0-98ff-f65370c939da\",\n        \"name\": \"Canoes for rafting\",\n        \"description\": \"canoes for outdoors\",\n        \"brand\": \"LightSpeed\",\n        \"quantity\": 11,\n        \"price\": \"390\",\n        \"categoryName\": \"outdoor sports\",\n        \"providerId\": \"f0b77af3-73cf-462e-bd80-0ec3eb83eef8\",\n        \"status\": \"ACTIVE\",\n        \"createdAt\": \"2026-07-09T11:25:26.282Z\",\n        \"updatedAt\": \"2026-07-09T11:25:26.282Z\",\n        \"category\": {\n            \"id\": \"8843b0b4-c916-4059-97fe-71b4454adfd3\",\n            \"name\": \"outdoor sports\",\n            \"description\": null,\n            \"status\": \"ACTIVE\",\n            \"createdAt\": \"2026-07-09T11:25:26.168Z\",\n            \"updatedAt\": \"2026-07-09T11:25:26.168Z\"\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get All Gear Categories",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4000/api/categories/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "categories",
+                ""
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get All Gear Categories (Public)",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:4000/api/categories/",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "api",
+                    "categories",
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "http://localhost:4000/"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "2451"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"993-sIDKjVUcqP0+YrqWJ4JwwT7cQqo\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 09 Jul 2026 16:58:31 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Categories Retrieved Successfully!\",\n    \"data\": [\n        {\n            \"id\": \"8843b0b4-c916-4059-97fe-71b4454adfd3\",\n            \"name\": \"outdoor sports\",\n            \"description\": null,\n            \"status\": \"ACTIVE\",\n            \"createdAt\": \"2026-07-09T11:25:26.168Z\",\n            \"updatedAt\": \"2026-07-09T11:25:26.168Z\",\n            \"gearItems\": [\n                {\n                    \"id\": \"9965ee39-c2ff-47a0-98ff-f65370c939da\",\n                    \"name\": \"Canoes for rafting\",\n                    \"description\": \"canoes for outdoors\",\n                    \"brand\": \"LightSpeed\",\n                    \"quantity\": 11,\n                    \"price\": \"390\",\n                    \"categoryName\": \"outdoor sports\",\n                    \"providerId\": \"f0b77af3-73cf-462e-bd80-0ec3eb83eef8\",\n                    \"status\": \"ACTIVE\",\n                    \"createdAt\": \"2026-07-09T11:25:26.282Z\",\n                    \"updatedAt\": \"2026-07-09T11:25:26.282Z\"\n                }\n            ]\n        },\n        {\n            \"id\": \"0b05a9ee-2174-4543-b820-9366c57fead6\",\n            \"name\": \"camping\",\n            \"description\": null,\n            \"status\": \"ACTIVE\",\n            \"createdAt\": \"2026-07-09T11:26:55.227Z\",\n            \"updatedAt\": \"2026-07-09T11:26:55.227Z\",\n            \"gearItems\": [\n                {\n                    \"id\": \"ec912ad6-8820-48c4-bd03-d822830a9222\",\n                    \"name\": \"Camping Tent\",\n                    \"description\": \"Waterproof 2-person tent for outdoor trips\",\n                    \"brand\": \"North Face\",\n                    \"quantity\": 10,\n                    \"price\": \"150\",\n                    \"categoryName\": \"camping\",\n                    \"providerId\": \"f0b77af3-73cf-462e-bd80-0ec3eb83eef8\",\n                    \"status\": \"ACTIVE\",\n                    \"createdAt\": \"2026-07-09T11:26:55.339Z\",\n                    \"updatedAt\": \"2026-07-09T11:29:22.345Z\"\n                }\n            ]\n        },\n        {\n            \"id\": \"d02b33f9-9cd6-4edc-8660-2a3acc1a4aff\",\n            \"name\": \"cycling\",\n            \"description\": null,\n            \"status\": \"ACTIVE\",\n            \"createdAt\": \"2026-07-09T11:27:48.731Z\",\n            \"updatedAt\": \"2026-07-09T11:27:48.731Z\",\n            \"gearItems\": [\n                {\n                    \"id\": \"9d4f369f-b2a5-4270-9d74-7bb0729dbd6f\",\n                    \"name\": \"GTRX Horse Cycling 2189\",\n                    \"description\": \"GTRX Horse Cycling 2189\",\n                    \"brand\": \"Horse Cycles\",\n                    \"quantity\": 10,\n                    \"price\": \"150\",\n                    \"categoryName\": \"cycling\",\n                    \"providerId\": \"f0b77af3-73cf-462e-bd80-0ec3eb83eef8\",\n                    \"status\": \"ACTIVE\",\n                    \"createdAt\": \"2026-07-09T11:27:48.834Z\",\n                    \"updatedAt\": \"2026-07-09T11:27:48.834Z\"\n                }\n            ]\n        },\n        {\n            \"id\": \"d476f118-e3c2-4e2f-b6b3-c341285fb93e\",\n            \"name\": \"Indoor cycling\",\n            \"description\": null,\n            \"status\": \"ACTIVE\",\n            \"createdAt\": \"2026-07-09T11:28:33.333Z\",\n            \"updatedAt\": \"2026-07-09T11:28:33.333Z\",\n            \"gearItems\": [\n                {\n                    \"id\": \"89e46f44-390f-4ee6-8d34-c9884ebafd17\",\n                    \"name\": \"GTRX Horse Cycling Indoors 2000\",\n                    \"description\": \"GTRX Horse Cycling Indoors 2000\",\n                    \"brand\": \"Horse Cycles\",\n                    \"quantity\": 12,\n                    \"price\": \"1500\",\n                    \"categoryName\": \"Indoor cycling\",\n                    \"providerId\": \"f0b77af3-73cf-462e-bd80-0ec3eb83eef8\",\n                    \"status\": \"ACTIVE\",\n                    \"createdAt\": \"2026-07-09T11:28:33.439Z\",\n                    \"updatedAt\": \"2026-07-09T11:28:33.439Z\"\n                }\n            ]\n        },\n        {\n            \"id\": \"4d152d42-54da-45b6-8ae8-bd07dc15ac50\",\n            \"name\": \"test category\",\n            \"description\": null,\n            \"status\": \"ACTIVE\",\n            \"createdAt\": \"2026-07-09T11:30:47.889Z\",\n            \"updatedAt\": \"2026-07-09T11:30:47.889Z\",\n            \"gearItems\": []\n        }\n    ]\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Provider",
+      "item": [
+        {
+          "name": "Add Gear",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{$accessToken}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "// {\n//     \"name\": \"Canoes for rafting\",\n//     \"description\": \"canoes for outdoors\",\n//     \"brand\": \"LightSpeed\",\n//     \"categoryName\": \"outdoor sports\",\n//     \"quantity\": 11,\n//     \"price\": 390,\n//     \"status\": \"ACTIVE\"\n// }\n// {\n//     \"name\": \"GTRX Horse Cycling Indoors 2000\",\n//     \"description\": \"GTRX Horse Cycling Indoors 2000\",\n//     \"brand\": \"Horse Cycles\",\n//     \"categoryName\": \"Indoor cycling\",\n//     \"quantity\": 12,\n//     \"price\": 1500,\n//     \"status\": \"ACTIVE\"\n// }\n{\n    \"name\": \"Testing for gear delete\",\n    \"description\": \"Testing gear item\",\n    \"brand\": \"Testing\",\n    \"categoryName\": \"test category\",\n    \"quantity\": 2,\n    \"price\": 15,\n    \"status\": \"DRAFT\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/providers/gears",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "providers",
+                "gears"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Add Gear as Provider",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{$accessToken}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "// {\n//     \"name\": \"Canoes for rafting\",\n//     \"description\": \"canoes for outdoors\",\n//     \"brand\": \"LightSpeed\",\n//     \"categoryName\": \"outdoor sports\",\n//     \"quantity\": 11,\n//     \"price\": 390,\n//     \"status\": \"ACTIVE\"\n// }\n// {\n//     \"name\": \"GTRX Horse Cycling Indoors 2000\",\n//     \"description\": \"GTRX Horse Cycling Indoors 2000\",\n//     \"brand\": \"Horse Cycles\",\n//     \"categoryName\": \"Indoor cycling\",\n//     \"quantity\": 12,\n//     \"price\": 1500,\n//     \"status\": \"ACTIVE\"\n// }\n{\n    \"name\": \"Testing for gear delete\",\n    \"description\": \"Testing gear item\",\n    \"brand\": \"Testing\",\n    \"categoryName\": \"test category\",\n    \"quantity\": 2,\n    \"price\": 15,\n    \"status\": \"DRAFT\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:4000/api/providers/gears",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "api",
+                    "providers",
+                    "gears"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "http://localhost:4000/"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "831"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"33f-dcQnzRAar+AJwXm99dAP4XU9YnY\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 09 Jul 2026 16:54:55 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Gear added to inventory successfully!\",\n    \"data\": {\n        \"id\": \"f7ece7b6-ce20-47ec-9434-2f0624a44de0\",\n        \"name\": \"Testing for gear delete\",\n        \"description\": \"Testing gear item\",\n        \"brand\": \"Testing\",\n        \"quantity\": 2,\n        \"price\": \"15\",\n        \"categoryName\": \"test category\",\n        \"providerId\": \"f0b77af3-73cf-462e-bd80-0ec3eb83eef8\",\n        \"status\": \"DRAFT\",\n        \"createdAt\": \"2026-07-09T16:54:54.819Z\",\n        \"updatedAt\": \"2026-07-09T16:54:54.819Z\",\n        \"category\": {\n            \"id\": \"4d152d42-54da-45b6-8ae8-bd07dc15ac50\",\n            \"name\": \"test category\",\n            \"description\": null,\n            \"status\": \"ACTIVE\",\n            \"createdAt\": \"2026-07-09T11:30:47.889Z\",\n            \"updatedAt\": \"2026-07-09T11:30:47.889Z\"\n        },\n        \"provider\": {\n            \"id\": \"f0b77af3-73cf-462e-bd80-0ec3eb83eef8\",\n            \"name\": \"Random Provider 1\",\n            \"email\": \"provider1@gamil.com\",\n            \"status\": \"ACTIVE\",\n            \"role\": \"PROVIDER\",\n            \"createdAt\": \"2026-07-09T11:21:56.724Z\",\n            \"updatedAt\": \"2026-07-09T15:05:43.355Z\"\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update Gear",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{$accessToken}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"ACTIVE\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/providers/gears/f7ece7b6-ce20-47ec-9434-2f0624a44de0",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "providers",
+                "gears",
+                "f7ece7b6-ce20-47ec-9434-2f0624a44de0"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Update Gear as Provider",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{$accessToken}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"ACTIVE\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:4000/api/providers/gears/f7ece7b6-ce20-47ec-9434-2f0624a44de0",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "api",
+                    "providers",
+                    "gears",
+                    "f7ece7b6-ce20-47ec-9434-2f0624a44de0"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "http://localhost:4000/"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "821"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"335-LACfBYT4svrpvq1IVx64p0r6ggA\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 09 Jul 2026 16:55:37 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Gear updated successfully!\",\n    \"data\": {\n        \"id\": \"f7ece7b6-ce20-47ec-9434-2f0624a44de0\",\n        \"name\": \"Testing for gear delete\",\n        \"description\": \"Testing gear item\",\n        \"brand\": \"Testing\",\n        \"quantity\": 2,\n        \"price\": \"15\",\n        \"categoryName\": \"test category\",\n        \"providerId\": \"f0b77af3-73cf-462e-bd80-0ec3eb83eef8\",\n        \"status\": \"ACTIVE\",\n        \"createdAt\": \"2026-07-09T16:54:54.819Z\",\n        \"updatedAt\": \"2026-07-09T16:55:37.327Z\",\n        \"category\": {\n            \"id\": \"4d152d42-54da-45b6-8ae8-bd07dc15ac50\",\n            \"name\": \"test category\",\n            \"description\": null,\n            \"status\": \"ACTIVE\",\n            \"createdAt\": \"2026-07-09T11:30:47.889Z\",\n            \"updatedAt\": \"2026-07-09T11:30:47.889Z\"\n        },\n        \"provider\": {\n            \"id\": \"f0b77af3-73cf-462e-bd80-0ec3eb83eef8\",\n            \"name\": \"Random Provider 1\",\n            \"email\": \"provider1@gamil.com\",\n            \"status\": \"ACTIVE\",\n            \"role\": \"PROVIDER\",\n            \"createdAt\": \"2026-07-09T11:21:56.724Z\",\n            \"updatedAt\": \"2026-07-09T15:05:43.355Z\"\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete Gear Item",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{$accessToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:4000/api/providers/gears/f7ece7b6-ce20-47ec-9434-2f0624a44de0",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "providers",
+                "gears",
+                "f7ece7b6-ce20-47ec-9434-2f0624a44de0"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Delete Gear Item as Provider",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{$accessToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:4000/api/providers/gears/f7ece7b6-ce20-47ec-9434-2f0624a44de0",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "api",
+                    "providers",
+                    "gears",
+                    "f7ece7b6-ce20-47ec-9434-2f0624a44de0"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "http://localhost:4000/"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "80"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"50-TT8uztio+xDnjUs5U9CPgphAMlY\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 09 Jul 2026 16:56:06 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Gear removed from inventory successfully!\",\n    \"data\": []\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Provider Orders",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{$accessToken}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/providers/orders",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "providers",
+                "orders"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get Provider's Orders",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{$accessToken}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "http://localhost:4000/api/providers/orders",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "api",
+                    "providers",
+                    "orders"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "http://localhost:4000/"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "555"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"22b-/5BUSgXUrY1s09OELEow/Y4mDaE\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 09 Jul 2026 17:10:36 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Provider orders retrieved successfully!\",\n    \"data\": [\n        {\n            \"id\": \"4fdfb22b-797c-4c62-b67d-c8fc48f5d552\",\n            \"name\": \"Rental Order - 92966083-8645-4126-8340-315774ae7128\",\n            \"description\": null,\n            \"status\": \"PENDING_PAYMENT\",\n            \"total\": \"300\",\n            \"rentFrom\": \"2026-07-10T10:00:00.000Z\",\n            \"rentTill\": \"2026-07-11T10:00:00.000Z\",\n            \"customerId\": \"92966083-8645-4126-8340-315774ae7128\",\n            \"orderItemId\": \"ec912ad6-8820-48c4-bd03-d822830a9222\",\n            \"providerId\": \"f0b77af3-73cf-462e-bd80-0ec3eb83eef8\",\n            \"createdAt\": \"2026-07-09T16:59:42.694Z\",\n            \"updatedAt\": \"2026-07-09T16:59:42.694Z\"\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update Order Status",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{$accessToken}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "// {\n//     \"status\": \"ACTIVE\"\n// }\n\n{\n    \"status\": \"CANCELED\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/providers/orders/4fdfb22b-797c-4c62-b67d-c8fc48f5d552",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "providers",
+                "orders",
+                "4fdfb22b-797c-4c62-b67d-c8fc48f5d552"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Update Provider's Order Status",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{$accessToken}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "// {\n//     \"status\": \"ACTIVE\"\n// }\n\n{\n    \"status\": \"CANCELED\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:4000/api/providers/orders/4fdfb22b-797c-4c62-b67d-c8fc48f5d552",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "api",
+                    "providers",
+                    "orders",
+                    "4fdfb22b-797c-4c62-b67d-c8fc48f5d552"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "http://localhost:4000/"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "541"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"21d-OE+7VsX6GuyZafcPxgslmy+J9Kw\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 09 Jul 2026 17:11:03 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Order status updated successfully!\",\n    \"data\": {\n        \"id\": \"4fdfb22b-797c-4c62-b67d-c8fc48f5d552\",\n        \"name\": \"Rental Order - 92966083-8645-4126-8340-315774ae7128\",\n        \"description\": null,\n        \"status\": \"CANCELED\",\n        \"total\": \"300\",\n        \"rentFrom\": \"2026-07-10T10:00:00.000Z\",\n        \"rentTill\": \"2026-07-11T10:00:00.000Z\",\n        \"customerId\": \"92966083-8645-4126-8340-315774ae7128\",\n        \"orderItemId\": \"ec912ad6-8820-48c4-bd03-d822830a9222\",\n        \"providerId\": \"f0b77af3-73cf-462e-bd80-0ec3eb83eef8\",\n        \"createdAt\": \"2026-07-09T16:59:42.694Z\",\n        \"updatedAt\": \"2026-07-09T17:11:03.751Z\"\n    }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Rentals",
+      "item": [
+        {
+          "name": "Create Rental Order",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{$accessToken}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"rentFrom\": \"2026-07-10T10:00:00.000Z\",\n    \"rentTill\": \"2026-07-11T10:00:00.000Z\",\n    \"orderItemId\": \"ec912ad6-8820-48c4-bd03-d822830a9222\",\n    \"orderQty\": 2,\n    \"price\": 150\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/rentals/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "rentals",
+                ""
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Create Rental Order As Customer",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{$accessToken}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"rentFrom\": \"2026-07-10T10:00:00.000Z\",\n    \"rentTill\": \"2026-07-11T10:00:00.000Z\",\n    \"orderItemId\": \"ec912ad6-8820-48c4-bd03-d822830a9222\",\n    \"orderQty\": 2,\n    \"price\": 150\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:4000/api/rentals/",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "api",
+                    "rentals",
+                    ""
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "http://localhost:4000/"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "2132"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"854-XsnT9X9Epv2ZyFlpSOTi8KT8CJI\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 09 Jul 2026 16:59:44 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Rental order created. Redirect customer to checkoutUrl to complete payment.\",\n    \"data\": {\n        \"order\": {\n            \"id\": \"4fdfb22b-797c-4c62-b67d-c8fc48f5d552\",\n            \"name\": \"Rental Order - 92966083-8645-4126-8340-315774ae7128\",\n            \"description\": null,\n            \"status\": \"PENDING_PAYMENT\",\n            \"total\": \"300\",\n            \"rentFrom\": \"2026-07-10T10:00:00.000Z\",\n            \"rentTill\": \"2026-07-11T10:00:00.000Z\",\n            \"customerId\": \"92966083-8645-4126-8340-315774ae7128\",\n            \"orderItemId\": \"ec912ad6-8820-48c4-bd03-d822830a9222\",\n            \"providerId\": \"f0b77af3-73cf-462e-bd80-0ec3eb83eef8\",\n            \"createdAt\": \"2026-07-09T16:59:42.694Z\",\n            \"updatedAt\": \"2026-07-09T16:59:42.694Z\",\n            \"customer\": {\n                \"id\": \"92966083-8645-4126-8340-315774ae7128\",\n                \"name\": \"Random Customer\",\n                \"email\": \"customer@gamil.com\",\n                \"status\": \"ACTIVE\",\n                \"role\": \"CUSTOMER\",\n                \"createdAt\": \"2026-07-09T11:22:19.899Z\",\n                \"updatedAt\": \"2026-07-09T11:22:19.899Z\"\n            },\n            \"orderItem\": {\n                \"id\": \"ec912ad6-8820-48c4-bd03-d822830a9222\",\n                \"name\": \"Camping Tent\",\n                \"description\": \"Waterproof 2-person tent for outdoor trips\",\n                \"brand\": \"North Face\",\n                \"quantity\": 10,\n                \"price\": \"150\",\n                \"categoryName\": \"camping\",\n                \"providerId\": \"f0b77af3-73cf-462e-bd80-0ec3eb83eef8\",\n                \"status\": \"ACTIVE\",\n                \"createdAt\": \"2026-07-09T11:26:55.339Z\",\n                \"updatedAt\": \"2026-07-09T11:29:22.345Z\"\n            },\n            \"payment\": {\n                \"id\": \"438eec11-e6b4-4be1-9fc7-cfe319522ea2\",\n                \"rentalOrderid\": \"4fdfb22b-797c-4c62-b67d-c8fc48f5d552\",\n                \"transactionId\": \"cs_test_a1RMfMh2leiyiDmTOkRgG6p01NeIVH1v39WcVdb0CIxzGJiFbOvzgFdIi6\",\n                \"userid\": \"92966083-8645-4126-8340-315774ae7128\",\n                \"stripeCustomerId\": \"92966083-8645-4126-8340-315774ae7128\",\n                \"amount\": \"30000\",\n                \"currency\": \"BDT\",\n                \"method\": \"card\",\n                \"provider\": \"f0b77af3-73cf-462e-bd80-0ec3eb83eef8\",\n                \"status\": \"PENDING\",\n                \"paidAt\": \"2026-07-09T16:59:43.648Z\"\n            }\n        },\n        \"checkoutUrl\": \"https://checkout.stripe.com/c/pay/cs_test_a1RMfMh2leiyiDmTOkRgG6p01NeIVH1v39WcVdb0CIxzGJiFbOvzgFdIi6#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWnFgdnFaMDRRdH9uMUJ1VjJdMGYxRlQ3RGhpdVNda1RHN0BIQTx3ZHZTcX1qPEdVdXNyQmJxSUlIRFNzfV0xNWxIVzZmQGlkR118VWJLbW0wdU9fQ3w0V1xycXFOczw1NWF0RndJTVAxJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get User's Rentals",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{$accessToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:4000/api/rentals/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "rentals",
+                ""
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get Customer's Rentals List",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{$accessToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:4000/api/rentals/",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "api",
+                    "rentals",
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "http://localhost:4000/"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "3110"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"c26-9CF/ni4K/0jPgKP3DehBuP7VyYw\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 09 Jul 2026 17:00:14 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Rental orders retrieved successfully!\",\n    \"data\": [\n        {\n            \"id\": \"eff83b8c-7d24-4a02-bb74-39da7b874dab\",\n            \"name\": \"Rental Order - 92966083-8645-4126-8340-315774ae7128\",\n            \"description\": null,\n            \"status\": \"CANCELED\",\n            \"total\": \"300\",\n            \"rentFrom\": \"2026-07-10T10:00:00.000Z\",\n            \"rentTill\": \"2026-07-13T10:00:00.000Z\",\n            \"customerId\": \"92966083-8645-4126-8340-315774ae7128\",\n            \"orderItemId\": \"9d4f369f-b2a5-4270-9d74-7bb0729dbd6f\",\n            \"providerId\": \"f0b77af3-73cf-462e-bd80-0ec3eb83eef8\",\n            \"createdAt\": \"2026-07-09T16:35:25.841Z\",\n            \"updatedAt\": \"2026-07-09T16:46:51.447Z\",\n            \"customer\": {\n                \"id\": \"92966083-8645-4126-8340-315774ae7128\",\n                \"name\": \"Random Customer\",\n                \"email\": \"customer@gamil.com\",\n                \"status\": \"ACTIVE\",\n                \"role\": \"CUSTOMER\",\n                \"createdAt\": \"2026-07-09T11:22:19.899Z\",\n                \"updatedAt\": \"2026-07-09T11:22:19.899Z\"\n            },\n            \"payment\": {\n                \"id\": \"cc0384cf-25ef-4769-9676-267d4d5fa163\",\n                \"rentalOrderid\": \"eff83b8c-7d24-4a02-bb74-39da7b874dab\",\n                \"transactionId\": \"cs_test_a1VcDYN0DuES2hxbNNFoIj6XmKdOUrOc0e5X1xeAWgBXINGy3kJoJs9YYO\",\n                \"userid\": \"92966083-8645-4126-8340-315774ae7128\",\n                \"stripeCustomerId\": \"92966083-8645-4126-8340-315774ae7128\",\n                \"amount\": \"30000\",\n                \"currency\": \"BDT\",\n                \"method\": \"card\",\n                \"provider\": \"f0b77af3-73cf-462e-bd80-0ec3eb83eef8\",\n                \"status\": \"PENDING\",\n                \"paidAt\": \"2026-07-09T16:35:26.752Z\"\n            },\n            \"orderItems\": [\n                {\n                    \"id\": \"9d4f369f-b2a5-4270-9d74-7bb0729dbd6f\",\n                    \"name\": \"GTRX Horse Cycling 2189\",\n                    \"description\": \"GTRX Horse Cycling 2189\",\n                    \"brand\": \"Horse Cycles\",\n                    \"quantity\": 10,\n                    \"price\": \"150\",\n                    \"categoryName\": \"cycling\",\n                    \"providerId\": \"f0b77af3-73cf-462e-bd80-0ec3eb83eef8\",\n                    \"status\": \"ACTIVE\",\n                    \"createdAt\": \"2026-07-09T11:27:48.834Z\",\n                    \"updatedAt\": \"2026-07-09T11:27:48.834Z\"\n                }\n            ]\n        },\n        {\n            \"id\": \"4fdfb22b-797c-4c62-b67d-c8fc48f5d552\",\n            \"name\": \"Rental Order - 92966083-8645-4126-8340-315774ae7128\",\n            \"description\": null,\n            \"status\": \"PENDING_PAYMENT\",\n            \"total\": \"300\",\n            \"rentFrom\": \"2026-07-10T10:00:00.000Z\",\n            \"rentTill\": \"2026-07-11T10:00:00.000Z\",\n            \"customerId\": \"92966083-8645-4126-8340-315774ae7128\",\n            \"orderItemId\": \"ec912ad6-8820-48c4-bd03-d822830a9222\",\n            \"providerId\": \"f0b77af3-73cf-462e-bd80-0ec3eb83eef8\",\n            \"createdAt\": \"2026-07-09T16:59:42.694Z\",\n            \"updatedAt\": \"2026-07-09T16:59:42.694Z\",\n            \"customer\": {\n                \"id\": \"92966083-8645-4126-8340-315774ae7128\",\n                \"name\": \"Random Customer\",\n                \"email\": \"customer@gamil.com\",\n                \"status\": \"ACTIVE\",\n                \"role\": \"CUSTOMER\",\n                \"createdAt\": \"2026-07-09T11:22:19.899Z\",\n                \"updatedAt\": \"2026-07-09T11:22:19.899Z\"\n            },\n            \"payment\": {\n                \"id\": \"438eec11-e6b4-4be1-9fc7-cfe319522ea2\",\n                \"rentalOrderid\": \"4fdfb22b-797c-4c62-b67d-c8fc48f5d552\",\n                \"transactionId\": \"cs_test_a1RMfMh2leiyiDmTOkRgG6p01NeIVH1v39WcVdb0CIxzGJiFbOvzgFdIi6\",\n                \"userid\": \"92966083-8645-4126-8340-315774ae7128\",\n                \"stripeCustomerId\": \"92966083-8645-4126-8340-315774ae7128\",\n                \"amount\": \"30000\",\n                \"currency\": \"BDT\",\n                \"method\": \"card\",\n                \"provider\": \"f0b77af3-73cf-462e-bd80-0ec3eb83eef8\",\n                \"status\": \"PENDING\",\n                \"paidAt\": \"2026-07-09T16:59:43.648Z\"\n            },\n            \"orderItems\": [\n                {\n                    \"id\": \"ec912ad6-8820-48c4-bd03-d822830a9222\",\n                    \"name\": \"Camping Tent\",\n                    \"description\": \"Waterproof 2-person tent for outdoor trips\",\n                    \"brand\": \"North Face\",\n                    \"quantity\": 10,\n                    \"price\": \"150\",\n                    \"categoryName\": \"camping\",\n                    \"providerId\": \"f0b77af3-73cf-462e-bd80-0ec3eb83eef8\",\n                    \"status\": \"ACTIVE\",\n                    \"createdAt\": \"2026-07-09T11:26:55.339Z\",\n                    \"updatedAt\": \"2026-07-09T11:29:22.345Z\"\n                }\n            ]\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Rental Details",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{$accessToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:4000/api/rentals/eff83b8c-7d24-4a02-bb74-39da7b874dab",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "rentals",
+                "eff83b8c-7d24-4a02-bb74-39da7b874dab"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get Single Rental Details as Customer",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{$accessToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:4000/api/rentals/eff83b8c-7d24-4a02-bb74-39da7b874dab",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "api",
+                    "rentals",
+                    "eff83b8c-7d24-4a02-bb74-39da7b874dab"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "http://localhost:4000/"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "1588"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"634-/xB6JUGL3kxcnNNaSyDeoS5Kaxk\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 09 Jul 2026 17:00:53 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Rental order details retrieved successfully!\",\n    \"data\": {\n        \"id\": \"eff83b8c-7d24-4a02-bb74-39da7b874dab\",\n        \"name\": \"Rental Order - 92966083-8645-4126-8340-315774ae7128\",\n        \"description\": null,\n        \"status\": \"CANCELED\",\n        \"total\": \"300\",\n        \"rentFrom\": \"2026-07-10T10:00:00.000Z\",\n        \"rentTill\": \"2026-07-13T10:00:00.000Z\",\n        \"customerId\": \"92966083-8645-4126-8340-315774ae7128\",\n        \"orderItemId\": \"9d4f369f-b2a5-4270-9d74-7bb0729dbd6f\",\n        \"providerId\": \"f0b77af3-73cf-462e-bd80-0ec3eb83eef8\",\n        \"createdAt\": \"2026-07-09T16:35:25.841Z\",\n        \"updatedAt\": \"2026-07-09T16:46:51.447Z\",\n        \"customer\": {\n            \"id\": \"92966083-8645-4126-8340-315774ae7128\",\n            \"name\": \"Random Customer\",\n            \"email\": \"customer@gamil.com\",\n            \"status\": \"ACTIVE\",\n            \"role\": \"CUSTOMER\",\n            \"createdAt\": \"2026-07-09T11:22:19.899Z\",\n            \"updatedAt\": \"2026-07-09T11:22:19.899Z\"\n        },\n        \"orderItem\": {\n            \"id\": \"9d4f369f-b2a5-4270-9d74-7bb0729dbd6f\",\n            \"name\": \"GTRX Horse Cycling 2189\",\n            \"description\": \"GTRX Horse Cycling 2189\",\n            \"brand\": \"Horse Cycles\",\n            \"quantity\": 10,\n            \"price\": \"150\",\n            \"categoryName\": \"cycling\",\n            \"providerId\": \"f0b77af3-73cf-462e-bd80-0ec3eb83eef8\",\n            \"status\": \"ACTIVE\",\n            \"createdAt\": \"2026-07-09T11:27:48.834Z\",\n            \"updatedAt\": \"2026-07-09T11:27:48.834Z\"\n        },\n        \"payment\": {\n            \"id\": \"cc0384cf-25ef-4769-9676-267d4d5fa163\",\n            \"rentalOrderid\": \"eff83b8c-7d24-4a02-bb74-39da7b874dab\",\n            \"transactionId\": \"cs_test_a1VcDYN0DuES2hxbNNFoIj6XmKdOUrOc0e5X1xeAWgBXINGy3kJoJs9YYO\",\n            \"userid\": \"92966083-8645-4126-8340-315774ae7128\",\n            \"stripeCustomerId\": \"92966083-8645-4126-8340-315774ae7128\",\n            \"amount\": \"30000\",\n            \"currency\": \"BDT\",\n            \"method\": \"card\",\n            \"provider\": \"f0b77af3-73cf-462e-bd80-0ec3eb83eef8\",\n            \"status\": \"PENDING\",\n            \"paidAt\": \"2026-07-09T16:35:26.752Z\"\n        }\n    }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Payment",
+      "item": [
+        {
+          "name": "Get Users Payments",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{$accessToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:4000/api/payments/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "payments",
+                ""
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get Customer's Payments History",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{$accessToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:4000/api/payments/",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "api",
+                    "payments",
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "http://localhost:4000/"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "964"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"3c4-a1t7HkddFfjz1ncrIlkMd88eLDU\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 09 Jul 2026 17:01:40 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Payments retrieved successfully!\",\n    \"data\": [\n        {\n            \"id\": \"cc0384cf-25ef-4769-9676-267d4d5fa163\",\n            \"rentalOrderid\": \"eff83b8c-7d24-4a02-bb74-39da7b874dab\",\n            \"transactionId\": \"cs_test_a1VcDYN0DuES2hxbNNFoIj6XmKdOUrOc0e5X1xeAWgBXINGy3kJoJs9YYO\",\n            \"userid\": \"92966083-8645-4126-8340-315774ae7128\",\n            \"stripeCustomerId\": \"92966083-8645-4126-8340-315774ae7128\",\n            \"amount\": \"30000\",\n            \"currency\": \"BDT\",\n            \"method\": \"card\",\n            \"provider\": \"f0b77af3-73cf-462e-bd80-0ec3eb83eef8\",\n            \"status\": \"PENDING\",\n            \"paidAt\": \"2026-07-09T16:35:26.752Z\"\n        },\n        {\n            \"id\": \"438eec11-e6b4-4be1-9fc7-cfe319522ea2\",\n            \"rentalOrderid\": \"4fdfb22b-797c-4c62-b67d-c8fc48f5d552\",\n            \"transactionId\": \"cs_test_a1RMfMh2leiyiDmTOkRgG6p01NeIVH1v39WcVdb0CIxzGJiFbOvzgFdIi6\",\n            \"userid\": \"92966083-8645-4126-8340-315774ae7128\",\n            \"stripeCustomerId\": \"92966083-8645-4126-8340-315774ae7128\",\n            \"amount\": \"30000\",\n            \"currency\": \"BDT\",\n            \"method\": \"card\",\n            \"provider\": \"f0b77af3-73cf-462e-bd80-0ec3eb83eef8\",\n            \"status\": \"PENDING\",\n            \"paidAt\": \"2026-07-09T16:59:43.648Z\"\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Payment Details",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{$accessToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:4000/api/payments/438eec11-e6b4-4be1-9fc7-cfe319522ea2",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "payments",
+                "438eec11-e6b4-4be1-9fc7-cfe319522ea2"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get Customer's Single Payment Details",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{$accessToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:4000/api/payments/438eec11-e6b4-4be1-9fc7-cfe319522ea2",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "api",
+                    "payments",
+                    "438eec11-e6b4-4be1-9fc7-cfe319522ea2"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "http://localhost:4000/"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "522"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"20a-l8b892HLX+LI+akq6+8b5R5khJg\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 09 Jul 2026 17:02:18 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Payment details retrieved successfully!\",\n    \"data\": {\n        \"id\": \"438eec11-e6b4-4be1-9fc7-cfe319522ea2\",\n        \"rentalOrderid\": \"4fdfb22b-797c-4c62-b67d-c8fc48f5d552\",\n        \"transactionId\": \"cs_test_a1RMfMh2leiyiDmTOkRgG6p01NeIVH1v39WcVdb0CIxzGJiFbOvzgFdIi6\",\n        \"userid\": \"92966083-8645-4126-8340-315774ae7128\",\n        \"stripeCustomerId\": \"92966083-8645-4126-8340-315774ae7128\",\n        \"amount\": \"30000\",\n        \"currency\": \"BDT\",\n        \"method\": \"card\",\n        \"provider\": \"f0b77af3-73cf-462e-bd80-0ec3eb83eef8\",\n        \"status\": \"PENDING\",\n        \"paidAt\": \"2026-07-09T16:59:43.648Z\"\n    }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Admin",
+      "item": [
+        {
+          "name": "Get All Users",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{$accessToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:4000/api/admin/users",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "admin",
+                "users"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get All Users List as an Admin",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{$accessToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:4000/api/admin/users",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "api",
+                    "admin",
+                    "users"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "http://localhost:4000/"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "1135"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"46f-bH1tRkn2Pr9MdlkH0zKruPczX98\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 09 Jul 2026 17:12:25 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Users retrieved successfully!\",\n    \"data\": [\n        {\n            \"id\": \"92966083-8645-4126-8340-315774ae7128\",\n            \"name\": \"Random Customer\",\n            \"email\": \"customer@gamil.com\",\n            \"role\": \"CUSTOMER\",\n            \"status\": \"ACTIVE\",\n            \"createdAt\": \"2026-07-09T11:22:19.899Z\",\n            \"updatedAt\": \"2026-07-09T11:22:19.899Z\"\n        },\n        {\n            \"id\": \"37191e34-3a80-484b-b3bc-3c35ba5a2fe4\",\n            \"name\": \"Random Admin\",\n            \"email\": \"admin@gamil.com\",\n            \"role\": \"ADMIN\",\n            \"status\": \"ACTIVE\",\n            \"createdAt\": \"2026-07-09T11:22:46.639Z\",\n            \"updatedAt\": \"2026-07-09T11:22:46.639Z\"\n        },\n        {\n            \"id\": \"f0b77af3-73cf-462e-bd80-0ec3eb83eef8\",\n            \"name\": \"Random Provider 1\",\n            \"email\": \"provider1@gamil.com\",\n            \"role\": \"PROVIDER\",\n            \"status\": \"ACTIVE\",\n            \"createdAt\": \"2026-07-09T11:21:56.724Z\",\n            \"updatedAt\": \"2026-07-09T15:05:43.355Z\"\n        },\n        {\n            \"id\": \"bc0c8811-8f5d-4e06-8b0a-0cb70b5a008d\",\n            \"name\": \"Random Customer\",\n            \"email\": \"customer1@gamil.com\",\n            \"role\": \"CUSTOMER\",\n            \"status\": \"ACTIVE\",\n            \"createdAt\": \"2026-07-09T16:48:09.209Z\",\n            \"updatedAt\": \"2026-07-09T16:48:09.209Z\"\n        },\n        {\n            \"id\": \"1c96a9a5-231b-49e6-b858-feecf4d86c0c\",\n            \"name\": \"Random Provider 2\",\n            \"email\": \"provider2@gamil.com\",\n            \"role\": \"CUSTOMER\",\n            \"status\": \"ACTIVE\",\n            \"createdAt\": \"2026-07-09T16:49:08.544Z\",\n            \"updatedAt\": \"2026-07-09T16:49:08.544Z\"\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get All Gears",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{$accessToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:4000/api/admin/gears",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "admin",
+                "gears"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get All Gears List As an Admin",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{$accessToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:4000/api/admin/gears",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "api",
+                    "admin",
+                    "gears"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "http://localhost:4000/"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "3155"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"c53-M/UZxPyKk6XCujFZCz26XDOsDxA\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 09 Jul 2026 17:12:42 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Gear listings retrieved successfully!\",\n    \"data\": [\n        {\n            \"id\": \"9965ee39-c2ff-47a0-98ff-f65370c939da\",\n            \"name\": \"Canoes for rafting\",\n            \"description\": \"canoes for outdoors\",\n            \"brand\": \"LightSpeed\",\n            \"quantity\": 11,\n            \"price\": \"390\",\n            \"categoryName\": \"outdoor sports\",\n            \"providerId\": \"f0b77af3-73cf-462e-bd80-0ec3eb83eef8\",\n            \"status\": \"ACTIVE\",\n            \"createdAt\": \"2026-07-09T11:25:26.282Z\",\n            \"updatedAt\": \"2026-07-09T11:25:26.282Z\",\n            \"category\": {\n                \"id\": \"8843b0b4-c916-4059-97fe-71b4454adfd3\",\n                \"name\": \"outdoor sports\",\n                \"description\": null,\n                \"status\": \"ACTIVE\",\n                \"createdAt\": \"2026-07-09T11:25:26.168Z\",\n                \"updatedAt\": \"2026-07-09T11:25:26.168Z\"\n            },\n            \"provider\": {\n                \"id\": \"f0b77af3-73cf-462e-bd80-0ec3eb83eef8\",\n                \"name\": \"Random Provider 1\",\n                \"email\": \"provider1@gamil.com\",\n                \"status\": \"ACTIVE\",\n                \"role\": \"PROVIDER\",\n                \"createdAt\": \"2026-07-09T11:21:56.724Z\",\n                \"updatedAt\": \"2026-07-09T15:05:43.355Z\"\n            }\n        },\n        {\n            \"id\": \"9d4f369f-b2a5-4270-9d74-7bb0729dbd6f\",\n            \"name\": \"GTRX Horse Cycling 2189\",\n            \"description\": \"GTRX Horse Cycling 2189\",\n            \"brand\": \"Horse Cycles\",\n            \"quantity\": 10,\n            \"price\": \"150\",\n            \"categoryName\": \"cycling\",\n            \"providerId\": \"f0b77af3-73cf-462e-bd80-0ec3eb83eef8\",\n            \"status\": \"ACTIVE\",\n            \"createdAt\": \"2026-07-09T11:27:48.834Z\",\n            \"updatedAt\": \"2026-07-09T11:27:48.834Z\",\n            \"category\": {\n                \"id\": \"d02b33f9-9cd6-4edc-8660-2a3acc1a4aff\",\n                \"name\": \"cycling\",\n                \"description\": null,\n                \"status\": \"ACTIVE\",\n                \"createdAt\": \"2026-07-09T11:27:48.731Z\",\n                \"updatedAt\": \"2026-07-09T11:27:48.731Z\"\n            },\n            \"provider\": {\n                \"id\": \"f0b77af3-73cf-462e-bd80-0ec3eb83eef8\",\n                \"name\": \"Random Provider 1\",\n                \"email\": \"provider1@gamil.com\",\n                \"status\": \"ACTIVE\",\n                \"role\": \"PROVIDER\",\n                \"createdAt\": \"2026-07-09T11:21:56.724Z\",\n                \"updatedAt\": \"2026-07-09T15:05:43.355Z\"\n            }\n        },\n        {\n            \"id\": \"89e46f44-390f-4ee6-8d34-c9884ebafd17\",\n            \"name\": \"GTRX Horse Cycling Indoors 2000\",\n            \"description\": \"GTRX Horse Cycling Indoors 2000\",\n            \"brand\": \"Horse Cycles\",\n            \"quantity\": 12,\n            \"price\": \"1500\",\n            \"categoryName\": \"Indoor cycling\",\n            \"providerId\": \"f0b77af3-73cf-462e-bd80-0ec3eb83eef8\",\n            \"status\": \"ACTIVE\",\n            \"createdAt\": \"2026-07-09T11:28:33.439Z\",\n            \"updatedAt\": \"2026-07-09T11:28:33.439Z\",\n            \"category\": {\n                \"id\": \"d476f118-e3c2-4e2f-b6b3-c341285fb93e\",\n                \"name\": \"Indoor cycling\",\n                \"description\": null,\n                \"status\": \"ACTIVE\",\n                \"createdAt\": \"2026-07-09T11:28:33.333Z\",\n                \"updatedAt\": \"2026-07-09T11:28:33.333Z\"\n            },\n            \"provider\": {\n                \"id\": \"f0b77af3-73cf-462e-bd80-0ec3eb83eef8\",\n                \"name\": \"Random Provider 1\",\n                \"email\": \"provider1@gamil.com\",\n                \"status\": \"ACTIVE\",\n                \"role\": \"PROVIDER\",\n                \"createdAt\": \"2026-07-09T11:21:56.724Z\",\n                \"updatedAt\": \"2026-07-09T15:05:43.355Z\"\n            }\n        },\n        {\n            \"id\": \"ec912ad6-8820-48c4-bd03-d822830a9222\",\n            \"name\": \"Camping Tent\",\n            \"description\": \"Waterproof 2-person tent for outdoor trips\",\n            \"brand\": \"North Face\",\n            \"quantity\": 10,\n            \"price\": \"150\",\n            \"categoryName\": \"camping\",\n            \"providerId\": \"f0b77af3-73cf-462e-bd80-0ec3eb83eef8\",\n            \"status\": \"ACTIVE\",\n            \"createdAt\": \"2026-07-09T11:26:55.339Z\",\n            \"updatedAt\": \"2026-07-09T11:29:22.345Z\",\n            \"category\": {\n                \"id\": \"0b05a9ee-2174-4543-b820-9366c57fead6\",\n                \"name\": \"camping\",\n                \"description\": null,\n                \"status\": \"ACTIVE\",\n                \"createdAt\": \"2026-07-09T11:26:55.227Z\",\n                \"updatedAt\": \"2026-07-09T11:26:55.227Z\"\n            },\n            \"provider\": {\n                \"id\": \"f0b77af3-73cf-462e-bd80-0ec3eb83eef8\",\n                \"name\": \"Random Provider 1\",\n                \"email\": \"provider1@gamil.com\",\n                \"status\": \"ACTIVE\",\n                \"role\": \"PROVIDER\",\n                \"createdAt\": \"2026-07-09T11:21:56.724Z\",\n                \"updatedAt\": \"2026-07-09T15:05:43.355Z\"\n            }\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get All Rental Orders",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{$accessToken}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:4000/api/admin/rentals",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "admin",
+                "rentals"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get All Rental Orders List As an Admin",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{$accessToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:4000/api/admin/rentals",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "api",
+                    "admin",
+                    "rentals"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "http://localhost:4000/"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "3097"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"c19-AxjJEtB8Ctt42pg1h0PD+EssTAc\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 09 Jul 2026 17:12:59 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Rental orders retrieved successfully!\",\n    \"data\": [\n        {\n            \"id\": \"eff83b8c-7d24-4a02-bb74-39da7b874dab\",\n            \"name\": \"Rental Order - 92966083-8645-4126-8340-315774ae7128\",\n            \"description\": null,\n            \"status\": \"CANCELED\",\n            \"total\": \"300\",\n            \"rentFrom\": \"2026-07-10T10:00:00.000Z\",\n            \"rentTill\": \"2026-07-13T10:00:00.000Z\",\n            \"customerId\": \"92966083-8645-4126-8340-315774ae7128\",\n            \"orderItemId\": \"9d4f369f-b2a5-4270-9d74-7bb0729dbd6f\",\n            \"providerId\": \"f0b77af3-73cf-462e-bd80-0ec3eb83eef8\",\n            \"createdAt\": \"2026-07-09T16:35:25.841Z\",\n            \"updatedAt\": \"2026-07-09T16:46:51.447Z\",\n            \"customer\": {\n                \"id\": \"92966083-8645-4126-8340-315774ae7128\",\n                \"name\": \"Random Customer\",\n                \"email\": \"customer@gamil.com\",\n                \"status\": \"ACTIVE\",\n                \"role\": \"CUSTOMER\",\n                \"createdAt\": \"2026-07-09T11:22:19.899Z\",\n                \"updatedAt\": \"2026-07-09T11:22:19.899Z\"\n            },\n            \"orderItem\": {\n                \"id\": \"9d4f369f-b2a5-4270-9d74-7bb0729dbd6f\",\n                \"name\": \"GTRX Horse Cycling 2189\",\n                \"description\": \"GTRX Horse Cycling 2189\",\n                \"brand\": \"Horse Cycles\",\n                \"quantity\": 10,\n                \"price\": \"150\",\n                \"categoryName\": \"cycling\",\n                \"providerId\": \"f0b77af3-73cf-462e-bd80-0ec3eb83eef8\",\n                \"status\": \"ACTIVE\",\n                \"createdAt\": \"2026-07-09T11:27:48.834Z\",\n                \"updatedAt\": \"2026-07-09T11:27:48.834Z\"\n            },\n            \"payment\": {\n                \"id\": \"cc0384cf-25ef-4769-9676-267d4d5fa163\",\n                \"rentalOrderid\": \"eff83b8c-7d24-4a02-bb74-39da7b874dab\",\n                \"transactionId\": \"cs_test_a1VcDYN0DuES2hxbNNFoIj6XmKdOUrOc0e5X1xeAWgBXINGy3kJoJs9YYO\",\n                \"userid\": \"92966083-8645-4126-8340-315774ae7128\",\n                \"stripeCustomerId\": \"92966083-8645-4126-8340-315774ae7128\",\n                \"amount\": \"30000\",\n                \"currency\": \"BDT\",\n                \"method\": \"card\",\n                \"provider\": \"f0b77af3-73cf-462e-bd80-0ec3eb83eef8\",\n                \"status\": \"PENDING\",\n                \"paidAt\": \"2026-07-09T16:35:26.752Z\"\n            }\n        },\n        {\n            \"id\": \"4fdfb22b-797c-4c62-b67d-c8fc48f5d552\",\n            \"name\": \"Rental Order - 92966083-8645-4126-8340-315774ae7128\",\n            \"description\": null,\n            \"status\": \"CANCELED\",\n            \"total\": \"300\",\n            \"rentFrom\": \"2026-07-10T10:00:00.000Z\",\n            \"rentTill\": \"2026-07-11T10:00:00.000Z\",\n            \"customerId\": \"92966083-8645-4126-8340-315774ae7128\",\n            \"orderItemId\": \"ec912ad6-8820-48c4-bd03-d822830a9222\",\n            \"providerId\": \"f0b77af3-73cf-462e-bd80-0ec3eb83eef8\",\n            \"createdAt\": \"2026-07-09T16:59:42.694Z\",\n            \"updatedAt\": \"2026-07-09T17:11:03.751Z\",\n            \"customer\": {\n                \"id\": \"92966083-8645-4126-8340-315774ae7128\",\n                \"name\": \"Random Customer\",\n                \"email\": \"customer@gamil.com\",\n                \"status\": \"ACTIVE\",\n                \"role\": \"CUSTOMER\",\n                \"createdAt\": \"2026-07-09T11:22:19.899Z\",\n                \"updatedAt\": \"2026-07-09T11:22:19.899Z\"\n            },\n            \"orderItem\": {\n                \"id\": \"ec912ad6-8820-48c4-bd03-d822830a9222\",\n                \"name\": \"Camping Tent\",\n                \"description\": \"Waterproof 2-person tent for outdoor trips\",\n                \"brand\": \"North Face\",\n                \"quantity\": 10,\n                \"price\": \"150\",\n                \"categoryName\": \"camping\",\n                \"providerId\": \"f0b77af3-73cf-462e-bd80-0ec3eb83eef8\",\n                \"status\": \"ACTIVE\",\n                \"createdAt\": \"2026-07-09T11:26:55.339Z\",\n                \"updatedAt\": \"2026-07-09T11:29:22.345Z\"\n            },\n            \"payment\": {\n                \"id\": \"438eec11-e6b4-4be1-9fc7-cfe319522ea2\",\n                \"rentalOrderid\": \"4fdfb22b-797c-4c62-b67d-c8fc48f5d552\",\n                \"transactionId\": \"cs_test_a1RMfMh2leiyiDmTOkRgG6p01NeIVH1v39WcVdb0CIxzGJiFbOvzgFdIi6\",\n                \"userid\": \"92966083-8645-4126-8340-315774ae7128\",\n                \"stripeCustomerId\": \"92966083-8645-4126-8340-315774ae7128\",\n                \"amount\": \"30000\",\n                \"currency\": \"BDT\",\n                \"method\": \"card\",\n                \"provider\": \"f0b77af3-73cf-462e-bd80-0ec3eb83eef8\",\n                \"status\": \"PENDING\",\n                \"paidAt\": \"2026-07-09T16:59:43.648Z\"\n            }\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update User Status",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{$accessToken}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"status\": \"SUSPENDED\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/admin/users/1c96a9a5-231b-49e6-b858-feecf4d86c0c",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "admin",
+                "users",
+                "1c96a9a5-231b-49e6-b858-feecf4d86c0c"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Update User Status as an Admin",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{$accessToken}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"status\": \"SUSPENDED\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:4000/api/admin/users/1c96a9a5-231b-49e6-b858-feecf4d86c0c",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "api",
+                    "admin",
+                    "users",
+                    "1c96a9a5-231b-49e6-b858-feecf4d86c0c"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "http://localhost:4000/"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "289"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"121-JtbjwmeNCIi/ATh6caVGk+hElvI\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 09 Jul 2026 17:14:51 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"User status updated successfully!\",\n    \"data\": {\n        \"id\": \"1c96a9a5-231b-49e6-b858-feecf4d86c0c\",\n        \"name\": \"Random Provider 2\",\n        \"email\": \"provider2@gamil.com\",\n        \"status\": \"SUSPENDED\",\n        \"role\": \"CUSTOMER\",\n        \"createdAt\": \"2026-07-09T16:49:08.544Z\",\n        \"updatedAt\": \"2026-07-09T17:14:50.936Z\"\n    }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Reviews",
+      "item": [
+        {
+          "name": "Add Review",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{$accessToken}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"gearId\": \"ec912ad6-8820-48c4-bd03-d822830a9222\",\n    \"rating\": 4.9,\n    \"content\": \"Excellent service from this. Awesome customer support from provider\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/gears/reviews",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "api",
+                "gears",
+                "reviews"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Adding  Review as a customer",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{$accessToken}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"gearId\": \"ec912ad6-8820-48c4-bd03-d822830a9222\",\n    \"rating\": 4.9,\n    \"content\": \"Excellent service from this. Awesome customer support from provider\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:4000/api/gears/reviews",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "api",
+                    "gears",
+                    "reviews"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "http://localhost:4000/"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "381"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"17d-P0uVYzEHq5wRksdDpZKY4YozIzA\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 09 Jul 2026 17:08:21 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Review added successfully!\",\n    \"data\": {\n        \"id\": \"83dd3ef5-f1dc-425a-b1b5-d73d18de5bc3\",\n        \"customerId\": \"92966083-8645-4126-8340-315774ae7128\",\n        \"itemId\": \"ec912ad6-8820-48c4-bd03-d822830a9222\",\n        \"content\": \"Excellent service from this. Awesome customer support from provider\",\n        \"rating\": \"4.9\",\n        \"createdAt\": \"2026-07-09T17:08:21.352Z\",\n        \"updatedAt\": \"2026-07-09T17:08:21.352Z\"\n    }\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "json_web_token_0tzi",
+      "secret": true
+    }
+  ]
+}

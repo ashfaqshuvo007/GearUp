@@ -84,17 +84,13 @@ const deleteGear = async (id: string) => {
   });
 };
 
-//TODO: Need to work on this after Order
 const getProviderOrders = async (providerId: string) => {
   return await prisma.rentalOrder.findMany({
-    include: {
-      customer: true,
-      orderItems: {
-        include: {
-          item: true,
-        },
+    where: {
+      providerId: providerId,
+      status: {
+        not: "CANCELED",
       },
-      payment: true,
     },
   });
 };

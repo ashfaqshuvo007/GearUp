@@ -11,8 +11,30 @@ const createRentalOrder = async (
   customerId: string,
   payload: IRentalOrderPayload,
 ) => {
+  const orderItemId = payload.orderItemId;
+
+  const orderItem = await prisma.gearItem.findUnique({
+    where: { id: orderItemId },
+  });
+
+  if (!orderItem) {
+    throw new Error("Order item not found.");
+  }
+
+  if (orderItem.quantity < payload.orderQty) {
+    throw new Error(
+      `Insufficient quantity available. Requested: ${payload.orderQty}, Available: ${orderItem.quantity}`,
+    );
+  }
+
+  const providerId = orderItem.providerId;
+
   const normalizedPayload = normalizeRentalOrderPayload(payload);
-  const rentalData = buildRentalCreateInput(customerId, normalizedPayload);
+  const rentalData = buildRentalCreateInput(
+    customerId,
+    providerId,
+    normalizedPayload,
+  );
 
   // Step 1: create the order
   const createdOrder = await prisma.$transaction(async (tx) => {

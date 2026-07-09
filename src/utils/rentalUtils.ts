@@ -3,6 +3,7 @@ import type { IRentalOrderPayload } from "../modules/rental/rental.interface";
 
 export const buildRentalCreateInput = (
   customerId: string,
+  providerId: string,
   payload: {
     total: number;
     orderItemId: string;
@@ -24,6 +25,7 @@ export const buildRentalCreateInput = (
   return {
     name: `Rental Order - ${customerId}`,
     customerId,
+    providerId,
     total: payload.total,
     orderItemId: payload.orderItemId,
     rentFrom,

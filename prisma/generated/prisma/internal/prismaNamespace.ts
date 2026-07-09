@@ -943,11 +943,14 @@ export const RentalOrderScalarFieldEnum = {
   name: 'name',
   description: 'description',
   status: 'status',
-  customerId: 'customerId',
-  orderItemId: 'orderItemId',
   total: 'total',
   rentFrom: 'rentFrom',
-  rentTill: 'rentTill'
+  rentTill: 'rentTill',
+  customerId: 'customerId',
+  orderItemId: 'orderItemId',
+  providerId: 'providerId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type RentalOrderScalarFieldEnum = (typeof RentalOrderScalarFieldEnum)[keyof typeof RentalOrderScalarFieldEnum]

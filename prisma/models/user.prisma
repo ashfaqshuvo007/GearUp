@@ -6,6 +6,7 @@ model User {
   status    ActiveStatus  @default(ACTIVE)
   role      Role          @default(CUSTOMER)
   orders    RentalOrder[]
+  rentalOrders RentalOrder[] @relation(name: "RentalOrderProvider")
   reviews   Review[]
   gearItems GearItem[]
   payments  Payment[]

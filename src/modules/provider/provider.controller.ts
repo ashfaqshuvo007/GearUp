@@ -3,6 +3,7 @@ import httpStatus from "http-status";
 import { catchAsync } from "../../utils/catchAsync";
 import sendResponse from "../../utils/sendReponse";
 import { providerService } from "./provider.service";
+import { isValidOrderStatus } from "../../utils/enumUtils";
 
 const addGear = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
@@ -59,6 +60,11 @@ const updateOrderStatus = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
     const { id } = req.params;
     const { status } = req.body;
+
+    if (!isValidOrderStatus(status)) {
+      throw new Error("Invalid Order status.");
+    }
+
     const order = await providerService.updateOrderStatus(id as string, status);
     sendResponse(res, {
       statusCode: httpStatus.OK,

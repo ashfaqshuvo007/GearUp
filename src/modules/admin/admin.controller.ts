@@ -3,7 +3,6 @@ import httpStatus from "http-status";
 import { catchAsync } from "../../utils/catchAsync";
 import { adminService } from "./admin.service";
 import type { NextFunction, Request, Response } from "express";
-import { ActiveStatus } from "../../../prisma/generated/prisma/client";
 import { isValidStatus } from "../../utils/enumUtils";
 
 const getAllUsers = catchAsync(

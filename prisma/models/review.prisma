@@ -1,8 +1,8 @@
 model Review {
   id         String   @id @default(uuid())
-  customerId String   @unique
+  customerId String   
   customer   User     @relation(fields: [customerId], references: [id])
-  itemId     String   @unique
+  itemId     String   
   item       GearItem @relation(fields: [itemId], references: [id])
   content    String @db.Text
   rating     Decimal  @db.Decimal(2, 1)
