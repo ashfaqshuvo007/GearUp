@@ -98,17 +98,20 @@ export const GearItemScalarFieldEnum = {
   providerId: 'providerId',
   status: 'status',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
-  rentalOrderId: 'rentalOrderId'
+  updatedAt: 'updatedAt'
 } as const
 
 export type GearItemScalarFieldEnum = (typeof GearItemScalarFieldEnum)[keyof typeof GearItemScalarFieldEnum]
 
 
 export const PaymentScalarFieldEnum = {
-  transactionId: 'transactionId',
+  id: 'id',
   rentalOrderid: 'rentalOrderid',
+  transactionId: 'transactionId',
+  userid: 'userid',
+  stripeCustomerId: 'stripeCustomerId',
   amount: 'amount',
+  currency: 'currency',
   method: 'method',
   provider: 'provider',
   status: 'status',
@@ -124,6 +127,7 @@ export const RentalOrderScalarFieldEnum = {
   description: 'description',
   status: 'status',
   customerId: 'customerId',
+  orderItemId: 'orderItemId',
   total: 'total',
   rentFrom: 'rentFrom',
   rentTill: 'rentTill'

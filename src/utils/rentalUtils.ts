@@ -1,14 +1,11 @@
 import { prisma } from "../lib/prisma";
-import type {
-  IRentalItemPayload,
-  IRentalOrderPayload,
-} from "../modules/rental/rental.interface";
+import type { IRentalOrderPayload } from "../modules/rental/rental.interface";
 
 export const buildRentalCreateInput = (
   customerId: string,
   payload: {
     total: number;
-    items: Array<{ itemId: string; orderQty: number; price: number }>;
+    orderItemId: string;
     rentFrom: string;
     rentTill: string;
   },
@@ -28,61 +25,29 @@ export const buildRentalCreateInput = (
     name: `Rental Order - ${customerId}`,
     customerId,
     total: payload.total,
+    orderItemId: payload.orderItemId,
     rentFrom,
     rentTill,
   };
 };
 
 export const normalizeRentalOrderPayload = (payload: IRentalOrderPayload) => {
-  const items = payload.items;
+  const orderItemId = payload.orderItemId;
   const rentFrom = payload.rentFrom;
   const rentTill = payload.rentTill;
-
-  if (!Array.isArray(items)) {
-    throw new Error("items must be an array.");
-  }
 
   if (typeof rentFrom !== "string" || typeof rentTill !== "string") {
     throw new Error("rentFrom and rentTill must be strings.");
   }
-
-  const normalizedItems = items.map((item) => {
-    if (typeof item !== "object" || item === null) {
-      throw new Error("Each item must be an object.");
-    }
-
-    const record = item as IRentalItemPayload;
-    const itemId = record.itemId;
-    const orderQty = record.orderQty;
-    const price = record.price;
-
-    if (typeof itemId !== "string" || !itemId.trim()) {
-      throw new Error("Each item must have a valid itemId.");
-    }
-
-    if (!Number.isFinite(Number(orderQty))) {
-      throw new Error("Each item must have a valid orderQty.");
-    }
-
-    if (!Number.isFinite(Number(price))) {
-      throw new Error("Each item must have a valid price.");
-    }
-
-    return {
-      itemId,
-      orderQty: Number(orderQty),
-      price: Number(price),
-    };
-  });
-
-  const total = normalizedItems.reduce(
-    (sum, item) => sum + item.orderQty * item.price,
-    0,
-  );
+  const orderQty = payload.orderQty;
+  const orderPrice = payload.price;
+  const total = orderQty * orderPrice;
 
   return {
     total,
-    items: normalizedItems,
+    orderItemId,
+    orderQty,
+    orderPrice,
     rentFrom,
     rentTill,
   };
@@ -97,7 +62,7 @@ export const getRentalOrderWithRelations = async (orderId: string) => {
           password: true,
         },
       },
-      orderItems: true,
+      orderItem: true,
       payment: true,
     },
   });

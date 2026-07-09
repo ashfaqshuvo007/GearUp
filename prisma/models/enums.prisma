@@ -5,11 +5,12 @@ enum ActiveStatus {
 }
 
 enum OrderStatus {
-  PENDING
+  PENDING_PAYMENT
   CONFIRMED
   PICKEDUP
   RETURNED
-  CANCELLED
+  CANCELED
+  FAILED
 }
 
 enum PaymentStatus {
