@@ -1,25 +1,25 @@
 enum ActiveStatus {
-    ACTIVE
-    SUSPENDED
-    DRAFT
+  ACTIVE
+  SUSPENDED
+  DRAFT
 }
 
 enum OrderStatus {
-    PENDING
-    CONFIRMED
-    PICKEDUP
-    RETURNED
-    CANCELLED
+  PENDING
+  CONFIRMED
+  PICKEDUP
+  RETURNED
+  CANCELLED
 }
 
 enum PaymentStatus {
-    PENDING
-    COMPLETED
-    FAILED
+  PENDING
+  COMPLETED
+  FAILED
 }
 
 enum Role {
-    CUSTOMER
-    PROVIDER
-    ADMIN
+  CUSTOMER
+  PROVIDER
+  ADMIN
 }

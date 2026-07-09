@@ -1,13 +1,13 @@
 model User {
-    id        String        @id @default(uuid())
-    name      String        @db.VarChar(255)
-    email     String        @unique
-    password  String
-    status    ActiveStatus  @default(ACTIVE)
-    role      Role          @default(CUSTOMER)
-    orders    RentalOrder[]
-    reviews   Review[]
-    gearItems GearItem[]
-    createdAt DateTime      @default(now())
-    updatedAt DateTime      @updatedAt
+  id        String        @id @default(uuid())
+  name      String        @db.VarChar(255)
+  email     String        @unique
+  password  String
+  status    ActiveStatus  @default(ACTIVE)
+  role      Role          @default(CUSTOMER)
+  orders    RentalOrder[]
+  reviews   Review[]
+  gearItems GearItem[]
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
 }
