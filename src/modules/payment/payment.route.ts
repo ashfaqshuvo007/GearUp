@@ -5,10 +5,16 @@ import { Role } from "../../../prisma/generated/prisma/client";
 
 const router = Router();
 
-router.post(
-  "/checkout",
+router.get(
+  "/",
   authAsync(Role.CUSTOMER, Role.PROVIDER, Role.ADMIN),
-  paymentController.createCheckoutSession,
+  paymentController.getUsersAllPayments,
+);
+
+router.get(
+  "/:id",
+  authAsync(Role.CUSTOMER, Role.PROVIDER, Role.ADMIN),
+  paymentController.getPaymentDetailsById,
 );
 
 export const paymentRouter = router;

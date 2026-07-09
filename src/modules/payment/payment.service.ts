@@ -34,6 +34,27 @@ const createCheckoutSession = async (
   });
 };
 
+const getUsersAllPayments = async (customerId: string) => {
+  const payments = await prisma.payment.findMany({
+    where: { userid: customerId },
+  });
+  return payments;
+};
+
+const getPaymentDetailsById = async (paymentId: string) => {
+  const payment = await prisma.payment.findUnique({
+    where: { id: paymentId },
+  });
+
+  if (!payment) {
+    throw new Error("Payment not found.");
+  }
+
+  return payment;
+};
+
 export const paymentService = {
   createCheckoutSession,
+  getUsersAllPayments,
+  getPaymentDetailsById,
 };
