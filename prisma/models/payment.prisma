@@ -1,10 +1,10 @@
 model Payment {
-    transactionId String        @id @default(uuid())
-    rentalOrderid String        @unique
-    rentalOrder   RentalOrder   @relation(fields: [rentalOrderid], references: [id], onDelete: Cascade)
-    amount        Decimal       @db.Decimal(8, 2)
-    method        String
-    provider      String
-    status        PaymentStatus @default(PENDING)
-    paidAt        DateTime
+  transactionId String        @id @default(uuid())
+  rentalOrderid String        @unique
+  rentalOrder   RentalOrder   @relation(fields: [rentalOrderid], references: [id], onDelete: Cascade)
+  amount        Decimal       @db.Decimal(8, 2)
+  method        String
+  provider      String
+  status        PaymentStatus @default(PENDING)
+  paidAt        DateTime
 }

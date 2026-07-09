@@ -1,3 +1,4 @@
+import type { OrderStatus } from "../../../prisma/generated/prisma/enums";
 import { prisma } from "../../lib/prisma";
 import {
   buildGearCreateInput,
@@ -99,7 +100,7 @@ const getProviderOrders = async (providerId: string) => {
 };
 
 //TODO: Need to work on this after Order
-const updateOrderStatus = async (id: string, status: unknown) => {
+const updateOrderStatus = async (id: string, status: OrderStatus) => {
   const existingOrder = await prisma.rentalOrder.findUnique({ where: { id } });
 
   if (!existingOrder) {
