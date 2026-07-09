@@ -22,9 +22,22 @@ GearUp is a backend API for a sports and outdoor equipment rental service. Custo
 
 ---
 
-## Tech Stack
+## 🛠️ Tech Stack
 
-🛠️ **See [README.md](./README.md#-tech-stack) for complete technology specifications.**
+### Backend
+
+| Technology        | Purpose                   |
+| ----------------- | ------------------------- |
+| Node.js + Express | REST API                  |
+| TypeScript        | Type safety (recommended) |
+| Postgres + Prisma | Database + ORM            |
+| JWT               | Authentication            |
+
+### Deployment
+
+| Service       | Purpose                |
+| ------------- | ---------------------- |
+| Vercel/Render | Backend API deployment |
 
 ---
 
@@ -64,8 +77,6 @@ GearUp is a backend API for a sports and outdoor equipment rental service. Custo
 ---
 
 ## API Endpoints
-
-> ⚠️ **Note**: These endpoints are examples. You may add, edit, or remove endpoints based on your implementation needs.
 
 ### Authentication
 
@@ -131,11 +142,28 @@ GearUp is a backend API for a sports and outdoor equipment rental service. Custo
 
 ## [GearUp SQL](./src/db/gearUp.sql)
 
+## Quick links (Live)
+
+```text
+Backend Repo : https://github.com/ashfaqshuvo007/GearUp
+
+Live API : https://gear-up-delta.vercel.app/
+
+API Docs : https://documenter.getpostman.com/view/7324207/2sBY4LQgZL
+
+Demo Video : https://drive.google.com/file/d/1oQdTi6bBzzeRjtRrFXXOmMeTyKlbD-fJ/view?usp=sharing
+
+Admin Email : admin@gmail.com
+
+Admin Password : 123456
+```
+
 ## Flow Diagrams
 
 ### 🏋️ Customer Journey
 
 ```
+
                               ┌──────────────┐
                               │   Register   │
                               └──────────────┘
@@ -174,11 +202,13 @@ GearUp is a backend API for a sports and outdoor equipment rental service. Custo
                               │ Return Gear  │
                               │ Leave Review │
                               └──────────────┘
+
 ```
 
 ### 🏪 Provider Journey
 
 ```
+
                               ┌──────────────┐
                               │   Register   │
                               └──────────────┘
@@ -203,11 +233,13 @@ GearUp is a backend API for a sports and outdoor equipment rental service. Custo
                               ┌──────────────┐
                               │Update Status │
                               └──────────────┘
+
 ```
 
 ### 📊 Rental Order Status
 
 ```
+
                               ┌──────────────┐
                               │    PLACED    │
                               └──────────────┘
@@ -237,6 +269,7 @@ GearUp is a backend API for a sports and outdoor equipment rental service. Custo
                     ┌──────────────┐
                     │  RETURNED    │
                     └──────────────┘
+
 ```
 
 ---
