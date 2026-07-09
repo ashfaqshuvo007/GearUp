@@ -6,7 +6,6 @@ import { providerService } from "./provider.service";
 
 const addGear = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
-    console.log(req.user?.data.id);
     const gear = await providerService.addGear(req.user?.data.id, req.body);
     sendResponse(res, {
       statusCode: httpStatus.CREATED,

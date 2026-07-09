@@ -11,9 +11,11 @@ import globalErrorHandler from "./middleware/globalErrorHandler";
 import { categoryRouter } from "./modules/category/category.route";
 import { gearRouter } from "./modules/gear/gear.route";
 import { providerRouter } from "./modules/provider/provider.route";
+import { adminRouter } from "./modules/admin/admin.route";
 import { rentalRouter } from "./modules/rental/rental.route";
 import { paymentRouter } from "./modules/payment/payment.route";
 import { webhookController } from "./modules/webhook/webhook.controller";
+import { notFoundHandler } from "./middleware/notFound";
 
 const app: Application = express();
 const BASE_URL = config.base_url;
@@ -47,6 +49,9 @@ app.use("/" + BASE_URL + "/gears", gearRouter);
 app.use("/" + BASE_URL + "/providers", providerRouter);
 app.use("/" + BASE_URL + "/rentals", rentalRouter);
 app.use("/" + BASE_URL + "/payments", paymentRouter);
+app.use("/" + BASE_URL + "/admin", adminRouter);
+
+app.use(notFoundHandler);
 
 app.use(globalErrorHandler);
 export default app;

@@ -22,7 +22,7 @@ export const verifyToken = async (token: string, secret: string) => {
       data: verifiedToken,
     };
   } catch (error) {
-    console.log("Token Verification Failed!", error);
+    console.error("Token Verification Failed!", error);
     return {
       success: false,
       error: (error as Error).message,
