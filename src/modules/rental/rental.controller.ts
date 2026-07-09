@@ -8,7 +8,7 @@ const createRentalOrder = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
     const customerId = req.user?.data?.id as string;
 
-    const rentalOrder = await rentalService.createRentalOrder(
+    const { order, checkoutUrl } = await rentalService.createRentalOrder(
       customerId,
       req.body,
     );
@@ -16,8 +16,9 @@ const createRentalOrder = catchAsync(
     sendResponse(res, {
       statusCode: httpStatus.CREATED,
       success: true,
-      message: "Rental order created successfully!",
-      data: rentalOrder,
+      message:
+        "Rental order created. Redirect customer to checkoutUrl to complete payment.",
+      data: { order, checkoutUrl },
     });
   },
 );

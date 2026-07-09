@@ -2,10 +2,11 @@ model RentalOrder {
   id          String      @id @default(uuid())
   name        String      @db.VarChar(255)
   description String?     @db.Text
-  status      OrderStatus @default(PENDING)
+  status      OrderStatus @default(PENDING_PAYMENT)
   customerId  String
   customer    User        @relation(fields: [customerId], references: [id])
-  orderItems  GearItem[]
+  orderItem   GearItem    @relation(fields: [orderItemId], references: [id])
+  orderItemId String
   payment     Payment?
   total       Decimal     @db.Decimal(8, 2)
   rentFrom    DateTime

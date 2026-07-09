@@ -38,7 +38,7 @@ const deleteGear = catchAsync(
       statusCode: httpStatus.OK,
       success: true,
       message: "Gear removed from inventory successfully!",
-      data: gear,
+      data: [],
     });
   },
 );

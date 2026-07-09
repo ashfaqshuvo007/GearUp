@@ -19,11 +19,12 @@ export type ActiveStatus = (typeof ActiveStatus)[keyof typeof ActiveStatus]
 
 
 export const OrderStatus = {
-  PENDING: 'PENDING',
+  PENDING_PAYMENT: 'PENDING_PAYMENT',
   CONFIRMED: 'CONFIRMED',
   PICKEDUP: 'PICKEDUP',
   RETURNED: 'RETURNED',
-  CANCELLED: 'CANCELLED'
+  CANCELED: 'CANCELED',
+  FAILED: 'FAILED'
 } as const
 
 export type OrderStatus = (typeof OrderStatus)[keyof typeof OrderStatus]
