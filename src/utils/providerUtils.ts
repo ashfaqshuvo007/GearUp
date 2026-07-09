@@ -115,5 +115,5 @@ export const buildGearUpdateInput = (payload: IUpdateGearItemPayload) => {
 };
 
 export const normalizeOrderStatus = (status: unknown) => {
-  return normalizeEnumValue(status, OrderStatus, OrderStatus.PENDING);
+  return normalizeEnumValue(status, OrderStatus, OrderStatus.PENDING_PAYMENT);
 };
