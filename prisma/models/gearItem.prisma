@@ -12,6 +12,7 @@ model GearItem {
   reviews      Review[]
 
   status       ActiveStatus  @default(ACTIVE)
+  image        String        @default("")
   createdAt    DateTime      @default(now())
   updatedAt    DateTime      @updatedAt
   rentalOrders RentalOrder[]

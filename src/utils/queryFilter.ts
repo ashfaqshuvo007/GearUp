@@ -4,6 +4,7 @@ type FilterConfig = {
   field: string;
   type?: "equals" | "contains" | "in" | "lte" | "gte" | "lt" | "gt";
   nestedField?: string;
+  mode?: "insensitive";
   transform?: (value: string) => unknown;
   parser?: (value: string) => { operator: string; value: unknown } | undefined;
 };
@@ -94,10 +95,14 @@ export const buildQueryFilter = (
     }
 
     const operator = operatorMap[config.type ?? "equals"];
+    const clause: Record<string, unknown> = { [operator]: transformedValue };
+    if (config.mode) {
+      clause.mode = config.mode;
+    }
 
     where[config.field] = config.nestedField
-      ? { [config.nestedField]: { [operator]: transformedValue } }
-      : { [operator]: transformedValue };
+      ? { [config.nestedField]: clause }
+      : clause;
   });
 
   return Object.keys(where).length > 0 ? where : undefined;
