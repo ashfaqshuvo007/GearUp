@@ -13,6 +13,7 @@ router.get(
   authController.loggedInUser,
 );
 
+router.get("/users/:id", authController.getUserDetails);
 router.post("/refresh-token", authController.refreshToken);
 
 export const authRouter = router;

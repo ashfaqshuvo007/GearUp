@@ -1,6 +1,7 @@
 import { ActiveStatus, Role } from "../../../prisma/generated/prisma/enums";
 import config from "../../config";
 import { prisma } from "../../lib/prisma";
+import { catchAsync } from "../../utils/catchAsync";
 import { compare, encrypt } from "../../utils/encrypt";
 import type { ILoginUser, IUser } from "./auth.interface";
 import jwt, { type JwtPayload } from "jsonwebtoken";
@@ -129,9 +130,19 @@ const generateRefreshToken = async (token: string) => {
   return { accessToken };
 };
 
+const getUserDetails = async (id: string) => {
+  return await prisma.user.findUnique({
+    where: { id },
+    omit: {
+      password: true,
+    },
+  });
+};
+
 export const authService = {
   registerUser,
   loginUser,
   loggedInUser,
   generateRefreshToken,
+  getUserDetails,
 };

@@ -15,11 +15,11 @@ export const buildRentalCreateInput = (
   const rentTill = new Date(payload.rentTill);
 
   if (Number.isNaN(rentFrom.getTime()) || Number.isNaN(rentTill.getTime())) {
-    throw new Error("Invalid date format for rentFrom or rentTill.");
+    throw new Error("Invalid date format for From Date or To Date.");
   }
 
   if (rentTill <= rentFrom) {
-    throw new Error("rentTill must be after rentFrom.");
+    throw new Error("To Date must be after From Date.");
   }
 
   return {
@@ -39,7 +39,7 @@ export const normalizeRentalOrderPayload = (payload: IRentalOrderPayload) => {
   const rentTill = payload.rentTill;
 
   if (typeof rentFrom !== "string" || typeof rentTill !== "string") {
-    throw new Error("rentFrom and rentTill must be strings.");
+    throw new Error("From date and To Date must be strings.");
   }
   const orderQty = payload.orderQty;
   const orderPrice = payload.price;

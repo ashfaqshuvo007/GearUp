@@ -55,6 +55,22 @@ const loggedInUser = catchAsync(
   },
 );
 
+const getUserDetails = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const { id } = req.params;
+    const provider = await authService.getUserDetails(id as string);
+    if (!provider) {
+      throw new Error("Provider not found!");
+    }
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: "Provider Retrieved Successfully!",
+      data: provider,
+    });
+  },
+);
+
 const refreshToken = catchAsync(async (req: Request, res: Response) => {
   const result = await authService.generateRefreshToken(
     req.cookies.refreshToken,
@@ -79,4 +95,5 @@ export const authController = {
   registerUser,
   loggedInUser,
   refreshToken,
+  getUserDetails,
 };

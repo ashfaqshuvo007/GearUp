@@ -120,6 +120,7 @@ const getUserRentalOrders = async (customerId: string) => {
       },
       payment: true,
     },
+    orderBy: { createdAt: "desc" },
   });
 
   const ordersWithItems = await Promise.all(
@@ -138,7 +139,7 @@ const getUserRentalOrders = async (customerId: string) => {
   return ordersWithItems;
 };
 
-const getRentalOrderDetails = async (id: string) => {
+const getRentalOrderDetails = async (id: string, query: any) => {
   const order = await getRentalOrderWithRelations(id);
 
   if (!order) {

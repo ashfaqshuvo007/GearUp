@@ -28,8 +28,8 @@ const createCheckoutSession = async (
       rentalOrderId,
       customerId,
     },
-    success_url: `${config.app_url}${config.base_url}/checkout/${rentalOrderId}?status=success`,
-    cancel_url: `${config.app_url}${config.base_url}/checkout/${rentalOrderId}?status=cancelled`,
+    success_url: `${config.app_url}${config.base_url}/rentals/${rentalOrderId}?status=success`,
+    cancel_url: `${config.app_url}${config.base_url}/rentals/${rentalOrderId}?status=cancelled`,
     expires_at: Math.floor(Date.now() / 1000) + 30 * 60, // 30 min expiry
   });
 };
