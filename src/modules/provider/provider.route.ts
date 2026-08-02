@@ -6,6 +6,11 @@ import { providerController } from "./provider.controller";
 const router = Router();
 
 router.post("/gears", authAsync(Role.PROVIDER), providerController.addGear);
+router.get(
+  "/gears",
+  authAsync(Role.PROVIDER),
+  providerController.getProviderGears,
+);
 router.put(
   "/gears/:id",
   authAsync(Role.PROVIDER),
@@ -23,8 +28,14 @@ router.get(
 );
 router.patch(
   "/orders/:id",
-  authAsync(Role.PROVIDER),
+  authAsync(Role.PROVIDER, Role.ADMIN),
   providerController.updateOrderStatus,
+);
+
+router.patch(
+  "/gears/:id",
+  authAsync(Role.PROVIDER, Role.ADMIN),
+  providerController.updateGearStatus,
 );
 
 export const providerRouter = router;

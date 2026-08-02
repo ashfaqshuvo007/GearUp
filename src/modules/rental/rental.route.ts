@@ -7,6 +7,10 @@ const router = Router();
 
 router.post("/", authAsync(Role.CUSTOMER), rentalController.createRentalOrder);
 router.get("/", authAsync(Role.CUSTOMER), rentalController.getUserRentalOrders);
-router.get("/:id", authAsync(Role.CUSTOMER), rentalController.getRentalOrderDetails);
+router.get(
+  "/:id",
+  authAsync(Role.CUSTOMER, Role.ADMIN, Role.PROVIDER),
+  rentalController.getRentalOrderDetails,
+);
 
 export const rentalRouter = router;

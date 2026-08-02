@@ -1,8 +1,12 @@
-import type { OrderStatus } from "../../../prisma/generated/prisma/enums";
+import type {
+  ActiveStatus,
+  OrderStatus,
+} from "../../../prisma/generated/prisma/enums";
 import { prisma } from "../../lib/prisma";
 import {
   buildGearCreateInput,
   buildGearUpdateInput,
+  normalizeActiveStatus,
   normalizeOrderStatus,
 } from "../../utils/providerUtils";
 import type {
@@ -84,13 +88,19 @@ const deleteGear = async (id: string) => {
   });
 };
 
-const getProviderOrders = async (providerId: string) => {
+const getProviderOrders = async (providerId: string, status?: OrderStatus) => {
+  return await prisma.rentalOrder.findMany({
+    where: {
+      providerId,
+      ...(status && { status }),
+    },
+  });
+};
+
+const getProviderGears = async (providerId: string) => {
   return await prisma.rentalOrder.findMany({
     where: {
       providerId: providerId,
-      status: {
-        not: "CANCELED",
-      },
     },
   });
 };
@@ -111,10 +121,27 @@ const updateOrderStatus = async (id: string, status: OrderStatus) => {
   });
 };
 
+const updateGearStatus = async (id: string, status: ActiveStatus) => {
+  const existingGear = await prisma.gearItem.findUnique({ where: { id } });
+
+  if (!existingGear) {
+    throw new Error("Gear not found.");
+  }
+
+  return await prisma.gearItem.update({
+    where: { id },
+    data: {
+      status: normalizeActiveStatus(status),
+    },
+  });
+};
+
 export const providerService = {
   addGear,
   updateGear,
   deleteGear,
   getProviderOrders,
+  getProviderGears,
   updateOrderStatus,
+  updateGearStatus,
 };
