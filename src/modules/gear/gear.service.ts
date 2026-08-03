@@ -63,6 +63,7 @@ const getGearItem = async (id: string) => {
     where: { id },
     include: {
       category: true,
+      provider: true,
     },
   });
 };

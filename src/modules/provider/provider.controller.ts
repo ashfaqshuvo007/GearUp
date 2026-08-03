@@ -47,12 +47,13 @@ const deleteGear = catchAsync(
 const getProviderGears = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
     const providerId = req.user?.data.id;
-    const orders = await providerService.getProviderGears(providerId);
+    const gears = await providerService.getProviderGears(providerId);
+    console.log(gears);
     sendResponse(res, {
       statusCode: httpStatus.OK,
       success: true,
       message: "Provider gears retrieved successfully!",
-      data: orders,
+      data: gears,
     });
   },
 );

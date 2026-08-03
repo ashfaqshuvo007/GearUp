@@ -98,9 +98,12 @@ const getProviderOrders = async (providerId: string, status?: OrderStatus) => {
 };
 
 const getProviderGears = async (providerId: string) => {
-  return await prisma.rentalOrder.findMany({
+  return await prisma.gearItem.findMany({
     where: {
       providerId: providerId,
+    },
+    include: {
+      provider: true,
     },
   });
 };
