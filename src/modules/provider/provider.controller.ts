@@ -48,7 +48,6 @@ const getProviderGears = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
     const providerId = req.user?.data.id;
     const gears = await providerService.getProviderGears(providerId);
-    console.log(gears);
     sendResponse(res, {
       statusCode: httpStatus.OK,
       success: true,
